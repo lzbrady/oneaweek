@@ -1,0 +1,15 @@
+#body-left-wrapper {
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+#body-right-wrapper {
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  min-width: 300px;
+  box-sizing: border-box;
+}

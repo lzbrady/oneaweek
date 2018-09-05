@@ -1,0 +1,203 @@
+h1 {
+    font-weight: normal;
+    margin-top: 0;
+}
+
+#picker-wrapper {
+    text-align: center;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+#class-picker,
+#school-picker,
+#state-picker {
+    font-size: 2rem;
+    padding: 5px;
+    border-radius: 13px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+#class-picker:hover,
+#school-picker:hover,
+#state-picker:hover {
+    cursor: pointer;
+}
+#class-picker:focus,
+#school-picker:focus,
+#state-picker:focus {
+    outline: none;
+}
+
+#progress-bar {
+    background-color: black;
+    width: 299px;
+    height: 2px;
+    margin: 60px auto;
+    position: relative;
+}
+
+#pipeline {
+    text-align: center;
+}
+
+.progress-item {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    top: -24.5px;
+    border-radius: 100%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.step-complete {
+    background-color: #78ff78;
+}
+
+.step-incomplete {
+    background-color: #ff7676;
+}
+
+.step-active {
+    background-color: #86a6ff;
+    box-shadow: 0 0 8px #fbff00;
+}
+
+#progress-state {
+    left: 0;
+}
+
+#progress-school {
+    left: 81px;
+}
+
+#progress-class {
+    right: 81px;
+}
+
+#progress-act {
+    right: 0;
+}
+
+#act-form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 4px;
+    box-sizing: border-box;
+    max-width: 750px;
+    position: relative;
+}
+
+#act-form input {
+    max-width: 512px;
+    width: 100%;
+    height: 40px;
+    font-size: 24px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    margin: 4px 0;
+    border: 1px solid #21216f;
+    color: #21216f;
+}
+#act-form input:focus,
+#act-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 4px #21216f;
+}
+
+#add-image-btn {
+    display: none;
+}
+
+#act-form textarea {
+    width: 100%;
+    max-width: 512px;
+    height: 200px;
+    font-size: 24px;
+    margin: 4px 0;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border: 1px solid #21216f;
+    color: #21216f;
+}
+
+#form-image-container input {
+    max-width: 500px;
+}
+
+#back-btn,
+#submit-btn {
+    font-size: 24px;
+    margin: 20px auto;
+    width: 250px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: block;
+    border: none;
+}
+#add-image-div:focus,
+#back-btn:focus,
+#remove-image-div:focus,
+#submit-btn:focus {
+    outline: none;
+}
+
+#add-image-div,
+#back-btn,
+#submit-btn {
+    background-color: #21216f;
+    color: white;
+}
+#add-image-div:hover,
+#back-btn:hover,
+#submit-btn:hover {
+    background-color: #313183;
+    cursor: pointer;
+}
+#remove-image-div:hover {
+    background-color: #fc5858;
+    cursor: pointer;
+}
+
+#form-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 20px auto;
+}
+
+#add-image-div,
+#remove-image-div,
+#submit-form-btn {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 512px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    line-height: 40px;
+}
+
+#remove-image-div {
+    background-color: #ff3c3c;
+}
+
+#submit-form-btn {
+    background-color: #5dae5d;
+}
+#submit-form-btn:hover {
+    background-color: #6abf6a;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+    text-align: center;
+    margin: 0;
+}
