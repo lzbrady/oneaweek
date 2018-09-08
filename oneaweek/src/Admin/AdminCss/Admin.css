@@ -1,0 +1,24 @@
+.admin-component {
+    margin-top: 140px;    
+}
+
+.manage-item {
+    display: block;
+    box-shadow: 0px 4px 8px #0a246e;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 24px;
+    color: #0a246e;
+    box-sizing: border-box;
+}
+
+.manage-item:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 12px #0a246e;
+    text-decoration: underline;
+}
+
+.admin-title {
+    color: #0a246e;
+}

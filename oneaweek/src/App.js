@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Route, HashRouter} from "react-router-dom";
+import {Route, HashRouter, Redirect} from "react-router-dom";
 
 import "./App.css";
 
@@ -7,18 +7,29 @@ import HomePage from "./Home/HomePage";
 import BlogPage from "./Blog/BlogPage";
 import Menu from "./Menu";
 import SharePage from "./Share/SharePage";
+import Sponsors from "./Sponsors/Sponsors";
+import Admin from "./Admin/Admin";
+import Login from "./Admin/Login";
+import AdminClasses from "./Admin/AdminClasses/AdminClasses";
+import AdminMenu from "./Admin/AdminMenu";
+import {fakeAuth} from "./Admin/Login";
 
 class App extends Component {
     render() {
         return (
             <div>
-                <Menu/>
+                <Menu/> 
+                {fakeAuth.isAuthenticated && <AdminMenu/>}
                 <HashRouter>
                     <div className="App">
                         <div className="content">
                             <Route exact path="/" component={HomePage}/>
                             <Route exact path="/blog" component={BlogPage}/>
                             <Route exact path="/share" component={SharePage}/>
+                            <Route exact path="/sponsors" component={Sponsors}/>
+                            <Route exact path="/login" component={Login}/>
+                            <PrivateRoute exact path="/admin" component={Admin}/>
+                            <PrivateRoute exact path="/admin/classes" component={AdminClasses}/>
                         </div>
                     </div>
                 </HashRouter>
@@ -26,5 +37,16 @@ class App extends Component {
         );
     }
 }
+
+const PrivateRoute = ({
+    component: Component,
+    ...rest
+}) => (
+    <Route
+        {...rest}
+        render={(props) => (fakeAuth.isAuthenticated === true
+        ? <Component {...props}/>
+        : <Redirect to='/login'/>)}/>
+)
 
 export default App;

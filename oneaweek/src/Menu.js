@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-import FacebookProvider, {Page} from "react-facebook";
 import logo from "./Images/1_a_week_logo.jpg";
-import {Route, HashRouter, Link} from "react-router-dom";
+import {HashRouter, Link} from "react-router-dom";
 
 import "./Menu.css";
 
@@ -11,9 +10,9 @@ class Menu extends Component {
             <HashRouter>
                 <header>
                     <img className="logo" src={logo} alt="1 a Week"/>
-                    <a className="title" href="">
-                        1 a Week
-                    </a>
+                    <nav className="title">
+                        <Link to="/">1 a Week</Link>
+                    </nav>
                     <i className="mobile w3-xxxlarge mobile-menu fa fa-bars"/>
                     <i className="mobile w3-xxxlarge mobile-close fa fa-close"/>
                     <div className="menu">
@@ -21,7 +20,10 @@ class Menu extends Component {
                             <Link to="/">Home</Link>
                         </nav>
                         <nav className="menu-item">
-                            <Link to="/dashboard">Sponsors</Link>
+                            <Link to="/blog">Blog</Link>
+                        </nav>
+                        <nav className="menu-item">
+                            <Link to="/sponsors">Sponsors</Link>
                         </nav>
                         <nav className="menu-item">
                             <Link to="/share">Share</Link>

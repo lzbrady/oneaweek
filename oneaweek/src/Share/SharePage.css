@@ -18,11 +18,17 @@ h1 {
     max-width: 100%;
     box-sizing: border-box;
 }
+
+#class-picker option {
+    text-align: center;
+}
+
 #class-picker:hover,
 #school-picker:hover,
 #state-picker:hover {
     cursor: pointer;
 }
+
 #class-picker:focus,
 #school-picker:focus,
 #state-picker:focus {
@@ -105,6 +111,7 @@ h1 {
     border: 1px solid #21216f;
     color: #21216f;
 }
+
 #act-form input:focus,
 #act-form textarea:focus {
     outline: none;
@@ -142,6 +149,7 @@ h1 {
     display: block;
     border: none;
 }
+
 #add-image-div:focus,
 #back-btn:focus,
 #remove-image-div:focus,
@@ -155,12 +163,14 @@ h1 {
     background-color: #21216f;
     color: white;
 }
+
 #add-image-div:hover,
 #back-btn:hover,
 #submit-btn:hover {
     background-color: #313183;
     cursor: pointer;
 }
+
 #remove-image-div:hover {
     background-color: #fc5858;
     cursor: pointer;
@@ -191,6 +201,7 @@ h1 {
 #submit-form-btn {
     background-color: #5dae5d;
 }
+
 #submit-form-btn:hover {
     background-color: #6abf6a;
     cursor: pointer;

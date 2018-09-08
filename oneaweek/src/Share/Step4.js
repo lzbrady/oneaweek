@@ -51,7 +51,7 @@ class Step1 extends Component {
                     <div
                         onClick={() => {
                         this.setState({hasImage: false, thumbnailSrc: ""});
-                        this.props.removeImage;
+                        this.props.removeImage();
                     }}
                         id="remove-image-div">
                         Remove Image

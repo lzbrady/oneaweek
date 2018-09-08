@@ -1,5 +1,5 @@
 header {
-    height: 70px;
+    height: 55px;
     background-color: #0a246e;
     position: fixed;
     width: 100%;
@@ -11,28 +11,31 @@ header {
 }
 
 .logo {
-    width: 50px;
+    width: 45px;
     height: auto;
-    margin: 10px;
+    margin: 4px;
     position: fixed;
 }
 
 .title {
     display: inline-block;
-    color: white;
-    font-size: 32px;
-    padding: 8px 8px 15px;
     margin: 0;
     vertical-align: text-bottom;
-    text-decoration: none;
-    left: 75px;
+    left: 60px;
     position: fixed;
+}
+
+.title a {
+    color: white;
+    font-size: 32px;
+    text-decoration: none;
+    line-height: 60px;
 }
 
 .menu {
     position: fixed;
     right: 10px;
-    top: 23px;
+    top: 20px;
 }
 
 .menu-item {
@@ -46,6 +49,7 @@ header {
     text-decoration: none;
     font-size: 21px;
 }
+
 .menu-item a:hover {
     background-color: #b6c9ff;
     color: #0a246e;

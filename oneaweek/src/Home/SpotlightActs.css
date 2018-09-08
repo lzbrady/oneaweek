@@ -1,0 +1,36 @@
+#spotlight-container {
+  width: 50%;
+  min-width: 300px;
+  box-shadow: 0px 2px 8px rgba(10, 36, 110, 0.61);
+  margin: 0px auto 40px;
+  max-height: 200px;
+  overflow: hidden;
+  border: 2px solid #0a246e;
+  border-radius: 13px;
+  padding: 4px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.spotlight-name {
+  font-size: 24px;
+  margin: 8px;
+  text-align: center;
+  color: #0a246e;
+}
+
+.refreshing {
+  opacity: 0.6;
+}
+
+#spotlight-refresh {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+}
+
+.spotlight-state {
+  margin-left: 4px;
+  font-style: italic;
+}
