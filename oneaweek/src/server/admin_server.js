@@ -8,7 +8,6 @@ firestore.settings(settings);
 
 export function getSchools(startDoc) {
   if (!startDoc.null) {
-    console.log("Start Doc Exists", startDoc);
     return fire
       .firestore()
       .collection("schools")
@@ -32,6 +31,9 @@ export function getClasses(schoolId) {
 }
 
 export function addClass(teacher, schoolId) {
+  if (teacher.trim() === "") {
+    return { error: true };
+  }
   return fire
     .firestore()
     .collection("classes")
@@ -39,5 +41,18 @@ export function addClass(teacher, schoolId) {
       code: 123456,
       schoolId: schoolId,
       teacher: teacher
+    });
+}
+
+export function addSchool(schoolName, state) {
+  if (schoolName.trim() === "" || state === "na" || state.trim() === "") {
+    return { error: true };
+  }
+  return fire
+    .firestore()
+    .collection("schools")
+    .add({
+      name: schoolName,
+      state: state
     });
 }

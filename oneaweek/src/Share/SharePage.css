@@ -41,6 +41,7 @@ h1 {
     height: 2px;
     margin: 60px auto;
     position: relative;
+    margin-top: 140px;
 }
 
 #pipeline {

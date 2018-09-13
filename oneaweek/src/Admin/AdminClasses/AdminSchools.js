@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import {getSchools} from "../../server/admin_server";
 
 import "./AdminSchools.css";
+import AdminAddSchool from "./AdminAddSchool";
 
 class AdminSchools extends Component {
 
@@ -13,11 +14,16 @@ class AdminSchools extends Component {
             lastSchoolDoc: {
                 null: true
             },
-            schools: []
+            schools: [],
+            addingSchool: false
         }
 
         this.getSchools = this
             .getSchools
+            .bind(this);
+
+        this.addSchool = this
+            .addSchool
             .bind(this);
     }
 
@@ -51,6 +57,17 @@ class AdminSchools extends Component {
         });
     }
 
+    addSchool(id, schoolName, state) {
+        var schools = this.state.schools;
+        var showState = true;
+        for (var i = 0; i < schools.length; i++) {
+            if (schools[i].state === state) {
+                showState = false;
+            }
+        }
+        schools.push({name: schoolName, state: state, id: id, showState: showState});
+    }
+
     render() {
         return <div>
             <h1>Schools</h1>
@@ -68,6 +85,13 @@ class AdminSchools extends Component {
                         </div>
                     )
                 })}
+            <button
+                className="admin-add-btn"
+                onClick={() => this.setState({addingSchool: true})}>Add School</button>
+            {this.state.addingSchool && <AdminAddSchool
+                schoolId={this.state.schoolId}
+                close={() => this.setState({addingSchool: false})}
+                addSchool={this.addSchool}/>}
         </div>;
     }
 }
