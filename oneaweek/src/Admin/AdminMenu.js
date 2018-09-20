@@ -11,10 +11,10 @@ class AdminMenu extends Component {
                     <Link to="/admin/classes">Manage Classes</Link>
                 </nav>
                 <nav className="admin-menu-item">
-                    <Link to="/blog">Manage Blogs</Link>
+                    <Link to="/admin/blogs">Manage Blogs</Link>
                 </nav>
                 <nav className="admin-menu-item">
-                    <Link to="/sponsors">Manage Podcasts</Link>
+                    <Link to="/admin/podcasts">Manage Podcasts</Link>
                 </nav>
             </div>
         </HashRouter>

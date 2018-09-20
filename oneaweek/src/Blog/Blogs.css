@@ -1,0 +1,19 @@
+.custom-block-quote {
+    font-size: 22px;
+    margin: 15px 30px;
+    font-weight: lighter;
+    border-left: 5px solid rgba(55, 65, 95, 0.6);
+    padding: 8px;
+    background-color: rgba(164, 171, 192, 0.3);
+}
+
+.custom-block-quote::before {
+    content: '"';
+    margin-right: 20px;
+    font-family: fantasy;
+    font-size: 32px;
+}
+
+.custom-block-quote .public-DraftStyleDefault-block {
+    display: inline;
+}

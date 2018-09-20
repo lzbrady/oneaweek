@@ -11,6 +11,8 @@ import Sponsors from "./Sponsors/Sponsors";
 import Admin from "./Admin/Admin";
 import Login from "./Admin/Login";
 import AdminClasses from "./Admin/AdminClasses/AdminClasses";
+import AdminBlogs from "./Admin/AdminBlogs/AdminBlogs";
+import AdminAddBlog from "./Admin/AdminBlogs/AdminAddBlog";
 import AdminMenu from "./Admin/AdminMenu";
 import {fakeAuth} from "./Admin/Login";
 
@@ -18,8 +20,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Menu/> 
-                {fakeAuth.isAuthenticated && <AdminMenu/>}
+                <Menu/> {fakeAuth.isAuthenticated && <AdminMenu/>}
                 <HashRouter>
                     <div className="App">
                         <div className="content">
@@ -30,11 +31,13 @@ class App extends Component {
                             <Route exact path="/login" component={Login}/>
                             <PrivateRoute exact path="/admin" component={Admin}/>
                             <PrivateRoute exact path="/admin/classes" component={AdminClasses}/>
+                            <PrivateRoute exact path="/admin/blogs" component={AdminBlogs}/>
+                            <PrivateRoute exact path="/admin/blogs/add" component={AdminAddBlog}/>
                         </div>
                     </div>
                 </HashRouter>
             </div>
-        );
+        )
     }
 }
 

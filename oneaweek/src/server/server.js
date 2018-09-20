@@ -68,3 +68,51 @@ function getRandomAct(num, greaterThan) {
 function getRandomNumber() {
   return Math.floor(Math.random() * 100000000);
 }
+
+export function getBlogPreviews(start) {
+  return fire
+    .database()
+    .ref("blogs")
+    .orderByChild("timestamp")
+    .startAt(start, "timestamp")
+    .limitToFirst(2);
+}
+
+// export function getFullBlog(blogName) {
+//   var uploadTask = fire
+//     .storage()
+//     .ref("blogs")
+//     .child(blogName)
+//     .put(file);
+
+//   fire
+//     .database()
+//     .ref("blogs")
+//     .child(blogName)
+//     .set({
+//       preview: preview
+//     });
+
+//   return uploadTask.then(
+//     function(snapshot) {
+//       // Can get progess in here if we want
+//       return { success: true };
+//     },
+//     function(error) {
+//       // A full list of error codes is available at
+//       // https://firebase.google.com/docs/storage/web/handle-errors
+//       switch (error.code) {
+//         case "storage/unauthorized":
+//           // User doesn't have permission to access the object
+//           break;
+//         case "storage/canceled":
+//           // User canceled the upload
+//           break;
+//         case "storage/unknown":
+//           // Unknown error occurred, inspect error.serverResponse
+//           break;
+//       }
+//       return { error: true };
+//     }
+//   );
+// }
