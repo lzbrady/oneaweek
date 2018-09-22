@@ -50,14 +50,16 @@ export function addSchool(schoolName, state) {
     .add({ name: schoolName, state: state });
 }
 
-export function addBlog(blogName, file, preview) {
-  var uploadTask = fire
-    .storage()
-    .ref("blogs")
-    .child(blogName)
-    .put(file);
-
+export function addBlog(blogName, content, preview) {
   fire
+    .database()
+    .ref("blog_posts")
+    .child(blogName)
+    .set({
+      content: content
+    });
+
+  return fire
     .database()
     .ref("blogs")
     .child(blogName)
@@ -65,27 +67,4 @@ export function addBlog(blogName, file, preview) {
       preview: preview,
       timestamp: new Date().getTime()
     });
-
-  return uploadTask.then(
-    function(snapshot) {
-      // Can get progess in here if we want
-      return { success: true };
-    },
-    function(error) {
-      // A full list of error codes is available at
-      // https://firebase.google.com/docs/storage/web/handle-errors
-      switch (error.code) {
-        case "storage/unauthorized":
-          // User doesn't have permission to access the object
-          break;
-        case "storage/canceled":
-          // User canceled the upload
-          break;
-        default:
-          // Unknown error occurred, inspect error.serverResponse
-          break;
-      }
-      return { error: true };
-    }
-  );
 }

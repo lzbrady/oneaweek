@@ -5,6 +5,7 @@ import "./App.css";
 
 import HomePage from "./Home/HomePage";
 import BlogPage from "./Blog/BlogPage";
+import BlogDetailPage from "./Blog/BlogDetailPage";
 import Menu from "./Menu";
 import SharePage from "./Share/SharePage";
 import Sponsors from "./Sponsors/Sponsors";
@@ -26,6 +27,7 @@ class App extends Component {
                         <div className="content">
                             <Route exact path="/" component={HomePage}/>
                             <Route exact path="/blog" component={BlogPage}/>
+                            <Route exact path="/blog/:id" component={BlogDetailPage}/>
                             <Route exact path="/share" component={SharePage}/>
                             <Route exact path="/sponsors" component={Sponsors}/>
                             <Route exact path="/login" component={Login}/>

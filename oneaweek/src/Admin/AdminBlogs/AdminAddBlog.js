@@ -38,15 +38,11 @@ class AdminAddBlog extends Component {
         this.setState({blogMarkup: blogMarkup, reviewing: true})
     }
 
-    // Function to download data to a file
     download(data, filename, type, preview) {
-        var file = new Blob([data], {type: type});
-        addBlog("New Test", file, preview).then(snapshot => {
-            if (snapshot.error) {
-                this.setState({uploadError: true});
-            } else if (snapshot.success) {
-                this.setState({uploadSuccessful: true});
-            }
+        // Might use to ensure the 10 KB limit var file = new Blob([data], {type:
+        // type});
+        addBlog("How To Write a Blog", data, preview).then(_ => {
+            this.setState({uploadSuccessful: true});
         });
     }
 

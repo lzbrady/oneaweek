@@ -1,66 +1,70 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { HashRouter, Link } from "react-router-dom";
 
-import {getBlogPreviews} from "../server/server";
+import { getBlogPreviews } from "../server/server";
+
+import "./Blogs.css";
 
 class BlogPage extends Component {
+  constructor() {
+    super();
 
-    constructor() {
-        super();
+    this.state = {
+      lastTimestamp: 0,
+      blogPosts: []
+    };
 
-        this.state = {
-            lastTimestamp: 0,
-            blogPosts: []
-        }
+    this.getPreviews = this.getPreviews.bind(this);
+  }
 
-        this.getPreviews = this
-            .getPreviews
-            .bind(this);
-    }
+  componentDidMount() {
+    this.getPreviews();
+  }
 
-    componentDidMount() {
-        this.getPreviews();
-    }
+  getPreviews() {
+    getBlogPreviews(this.state.lastTimestamp)
+      .once("value")
+      .then(snapshot => {
+        var lastTimestamp = 0;
+        var blogPosts = [];
+        snapshot.forEach(child => {
+          lastTimestamp = child.val().timestamp;
+          blogPosts.push({
+            title: child.key,
+            preview: child.val().preview
+          });
+        });
+        this.setState({ lastTimestamp: lastTimestamp, blogPosts: blogPosts });
+      });
+  }
 
-    getPreviews() {
-        getBlogPreviews(this.state.lastTimestamp)
-            .once("value")
-            .then(snapshot => {
-                console.log("Snapshot", snapshot);
-                console.log("Snapshot Val", snapshot.val());
-
-                var lastTimestamp = 0;
-                var blogPosts = [];
-                snapshot.forEach((child) => {
-                    console.log(child.key, child.val());
-                    lastTimestamp = child
-                        .val()
-                        .timestamp;
-                    blogPosts.push({
-                        title: child.key,
-                        preview: child
-                            .val()
-                            .preview
-                    });
-                });
-                this.setState({lastTimestamp: lastTimestamp, blogPosts: blogPosts})
-            });
-    }
-
-    render() {
-        return <div>
-            Blogs {this
-                .state
-                .blogPosts
-                .map(blog => {
-                    return (
-                        <div className="blog-post-preview-wrapper" key={blog.title}>
-                          <h1 className="blog-post-preview-title">{blog.title}</h1>
-                          <h1 className="blog-post-preview-preview">{blog.preview}</h1>
-                        </div>
-                    )
-                })}
-        </div>;
-    }
+  render() {
+    return (
+      <HashRouter>
+        <div>
+          <h1 className="headline">1 a week stories</h1>
+          {this.state.blogPosts.map(blog => {
+            return (
+              <nav className="blog-post-preview-wrapper" key={blog.title}>
+                <Link to={`/blog/${blog.title}`}>
+                  <h1 className="blog-post-preview-title">{blog.title}</h1>
+                  <p
+                    className="blog-post-preview-preview"
+                    dangerouslySetInnerHTML={{
+                      __html: blog.preview.replace(
+                        /(<? *script)/gi,
+                        "illegalscript"
+                      )
+                    }}
+                  />
+                </Link>
+              </nav>
+            );
+          })}
+        </div>
+      </HashRouter>
+    );
+  }
 }
 
 export default BlogPage;

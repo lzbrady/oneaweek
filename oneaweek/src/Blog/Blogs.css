@@ -17,3 +17,42 @@
 .custom-block-quote .public-DraftStyleDefault-block {
     display: inline;
 }
+
+.blog-post-preview-wrapper {
+    width: 80%;
+    min-width: 275px;
+    margin: 0px auto;
+    padding: 25px 5px;
+    border-bottom: 1px solid rgba(185, 185, 185, 0.48);
+    box-sizing: border-box;
+}
+
+.blog-post-preview-wrapper:hover {
+    background-color: rgba(185, 185, 185, 0.48);
+    cursor: pointer;
+}
+
+.blog-post-preview-wrapper a {
+    text-decoration: none;
+}
+
+.blog-post-preview-title {
+    text-align: left;
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.blog-post-preview-preview {
+    text-align: left;
+    color: #6e6e6e;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.blog-content {
+    width: 80%;
+    min-width: 275px;
+    margin: 20px auto;
+}
