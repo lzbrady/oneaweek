@@ -87,3 +87,17 @@ export function addBlog(blogName, content, preview) {
       timestamp: new Date().getTime()
     });
 }
+
+export function deleteBlog(blogName) {
+  fire
+    .database()
+    .ref("blog_posts")
+    .child(blogName)
+    .remove();
+
+  fire
+    .database()
+    .ref("blogs")
+    .child(blogName)
+    .remove();
+}

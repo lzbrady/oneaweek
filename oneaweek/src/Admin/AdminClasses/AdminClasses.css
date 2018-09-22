@@ -38,6 +38,11 @@
     color: #0a246e;
 }
 
+.admin-add-btn a {
+    text-decoration: none;
+    color: #0a246e;
+}
+
 .admin-delete-btn {
     border: none;
     background: transparent;
