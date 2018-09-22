@@ -6,22 +6,7 @@ const settings = {
 };
 firestore.settings(settings);
 
-export function getSchools(startDoc) {
-  if (!startDoc.null) {
-    return fire
-      .firestore()
-      .collection("schools")
-      .orderBy("state")
-      .startAfter(startDoc)
-      .get();
-  }
-  return fire
-    .firestore()
-    .collection("schools")
-    .orderBy("state")
-    .get();
-}
-
+// Classes
 export function getClasses(schoolId) {
   return fire
     .firestore()
@@ -40,6 +25,15 @@ export function addClass(teacher, schoolId) {
     .add({ code: 123456, schoolId: schoolId, teacher: teacher });
 }
 
+export function deleteClass(classId) {
+  return fire
+    .firestore()
+    .collection("classes")
+    .doc(classId)
+    .delete();
+}
+
+// Schools
 export function addSchool(schoolName, state) {
   if (schoolName.trim() === "" || state === "na" || state.trim() === "") {
     return { error: true };
@@ -47,9 +41,34 @@ export function addSchool(schoolName, state) {
   return fire
     .firestore()
     .collection("schools")
-    .add({ name: schoolName, state: state });
+    .add({ name: schoolName.trim(), state: state.trim() });
 }
 
+export function deleteSchool(schoolId) {
+  return fire
+    .firestore()
+    .collection("schools")
+    .doc(schoolId)
+    .delete();
+}
+
+export function getSchools(startDoc) {
+  if (!startDoc.null) {
+    return fire
+      .firestore()
+      .collection("schools")
+      .orderBy("state")
+      .startAfter(startDoc)
+      .get();
+  }
+  return fire
+    .firestore()
+    .collection("schools")
+    .orderBy("state")
+    .get();
+}
+
+// Blogs
 export function addBlog(blogName, content, preview) {
   fire
     .database()

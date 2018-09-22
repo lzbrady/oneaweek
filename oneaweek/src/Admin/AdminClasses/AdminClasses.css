@@ -1,6 +1,7 @@
 .admin-list-object {
     width: 75%;
     margin: 8px auto;
+    position: relative;
 }
 
 .admin-list-header {
@@ -26,21 +27,35 @@
     max-width: 300px;
     padding: 6px;
     margin: 10px auto;
-    border: 2px solid #0a246e;
-    background: #d2d6ef;
     box-shadow: 0 4px 12px #0000008f;
     font-size: 20px;
-    color: #0a246e;
     border-radius: 4px;
     text-align: center;
     display: block;
     margin-bottom: 32px;
+    border: 2px solid #0a246e;
+    background: #d2d6ef;
+    color: #0a246e;
+}
+
+.admin-delete-btn {
+    border: none;
+    background: transparent;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    padding: 5px 20px;
 }
 
 .admin-add-btn:hover {
     cursor: pointer;
     background: rgb(222, 225, 241);
     box-shadow: 0 6px 12px #0000008f;
+}
+
+.admin-delete-btn:hover {
+    cursor: pointer;
+    background: rgba(190, 190, 190, 0.51);
 }
 
 .admin-add-btn:focus {
