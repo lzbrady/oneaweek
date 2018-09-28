@@ -5,6 +5,13 @@ import {HashRouter, Link} from "react-router-dom";
 import "./Menu.css";
 
 class Menu extends Component {
+    constructor() {
+        super();
+        this.state = {
+            menuOpen: true
+        }
+    }
+
     render() {
         return (
             <HashRouter>
@@ -13,8 +20,6 @@ class Menu extends Component {
                     <nav className="title">
                         <Link to="/">1 a Week</Link>
                     </nav>
-                    <i className="mobile w3-xxxlarge mobile-menu fa fa-bars"/>
-                    <i className="mobile w3-xxxlarge mobile-close fa fa-close"/>
                     <div className="menu">
                         <nav className="menu-item">
                             <Link to="/">Home</Link>

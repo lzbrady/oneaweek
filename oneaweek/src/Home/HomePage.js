@@ -15,28 +15,32 @@ class HomePage extends Component {
                 <SpotlightActs/>
 
                 <div id="body-left-wrapper" className="feed-container">
-                    <h1 className="home-page-body-heading">Make a Difference</h1>
+                    <h1 className="home-page-body-heading headline">Make a Difference</h1>
                     <p className="home-page-body-text">
                         1 A Week is an organization which promotes acts of kindness and mental health.
                         Hoping to make an impact on the world.
                     </p>
 
-                    <h1 className="home-page-body-heading">Our Mission</h1>
+                    <h1 className="home-page-body-heading headline">Our Mission</h1>
                     <p className="home-page-body-text">
                         We came together and reflected on the lack of selflessness within our
                         communities and in the grand scheme of things, our society. In today’s fast
                         paced stressful world, it is amazing what one door held, one dollar, or one
-                        smile can do to a person’s mood or day. Seeing the need for a “selflessness
-                        resurrection”, we individually adopted a 1 a week challenge, where each week we
-                        do one nice thing for somebody in our lives or a stranger, and would report back
-                        to each other for accountability. If we did not successfully perform one act of
-                        kindness, we would donate money to a cause that we personally connected with.
+                        smile can do to a person’s mood or day.
+                        <br/><br/>
+                        Seeing the need for a <span className="hightlight-text">“selflessness resurrection”</span>, we individually adopted a 1 a
+                        week challenge, where each week we do one nice thing for somebody in our lives
+                        or a stranger, and would report back to each other for accountability. If we did
+                        not successfully perform one act of kindness, we would donate money to a cause
+                        that we personally connected with.
                     </p>
 
-                    <p className="home-page-body-text">Boomer and Derek have enjoyed the fruits of their
-                        actions, and are here today to challenge “YOU” to join us on our 1 a week
+                    <p className="home-page-body-text">Boomer and Derek have enjoyed the fruits of
+                        their actions, and are here today to challenge “YOU” to join us on our 1 a week
                         pledge/challenge. Follow us on
-                        <a className="home-page-body-link" href="https://www.facebook.com/1aWeekChallenge/">
+                        <a
+                            className="home-page-body-link"
+                            href="https://www.facebook.com/1aWeekChallenge/">
                             Facebook
                         </a>
                         and
@@ -46,7 +50,7 @@ class HomePage extends Component {
                         (@_1aweek) to see how you can make a difference.
                     </p>
 
-                    <h1 className="home-page-body-heading">Ideas</h1>
+                    <h1 className="home-page-body-heading headline">Ideas</h1>
                     <p className="home-page-body-text">
                         We have even included a list of ideas to start you off! Please share photos of
                         your challenges or add comments to share more ideas with the community!

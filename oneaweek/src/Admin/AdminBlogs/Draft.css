@@ -12,6 +12,10 @@
     padding: 8px;
 }
 
+.public-DraftEditor-content:focus {
+    border: 1px solid blue;
+}
+
 .custom-block-quote {
     font-size: 22px;
     margin: 15px 30px;

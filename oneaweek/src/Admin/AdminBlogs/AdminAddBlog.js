@@ -15,6 +15,7 @@ class AdminAddBlog extends Component {
         super();
 
         this.state = {
+            blogTitle: "",
             blogMarkup: "",
             reviewing: false,
             uploadSuccessful: false,
@@ -32,16 +33,32 @@ class AdminAddBlog extends Component {
         this.download = this
             .download
             .bind(this);
+
+        this.setBlogTitle = this
+            .setBlogTitle
+            .bind(this);
+    }
+
+    setBlogTitle(event) {
+        this.setState({blogTitle: event.target.value});
     }
 
     review(blogMarkup) {
-        this.setState({blogMarkup: blogMarkup, reviewing: true})
+        if (this.state.blogTitle === "") {
+            document
+                .getElementById("blog-title-input")
+                .classList
+                .add("input-error");
+        } else {
+            this.setState({blogMarkup: blogMarkup, reviewing: true})
+        }
     }
 
     download(data, filename, type, preview) {
         // Might use to ensure the 10 KB limit var file = new Blob([data], {type:
         // type});
-        addBlog("How To Write a Blog", data, preview).then(_ => {
+
+        addBlog(this.state.blogTitle, data, preview).then(_ => {
             this.setState({uploadSuccessful: true});
         });
     }
@@ -55,8 +72,16 @@ class AdminAddBlog extends Component {
             <div
                 className={this.state.reviewing || this.state.uploadSuccessful || this.state.uploadError
                 ? "hide"
-                : "show"}><TextEditor post={this.review}/></div>
+                : "show"}>
+                <input
+                    placeholder="Blog Title"
+                    id="blog-title-input"
+                    type="text"
+                    onChange={this.setBlogTitle}/>
+                <TextEditor post={this.review}/>
+            </div>
             {this.state.reviewing && !(this.state.uploadSuccessful || this.state.uploadError) && <Review
+                blogTitle={this.state.blogTitle}
                 preview={this.state.blogMarkup}
                 edit={() => this.setState({reviewing: false})}
                 save={this.save}/>}

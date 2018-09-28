@@ -35,3 +35,13 @@ body {
     color: #3e3e3e;
     font-style: italic;
 }
+
+.input-error {
+    border: 2px solid red !important;
+}
+
+.hightlight-text {
+    font-size: 20px;
+    background: linear-gradient(to right, #b6c9ff, #b6fff2, #00ff8e);
+    color: #0a246e;
+}

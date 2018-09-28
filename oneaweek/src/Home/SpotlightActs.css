@@ -1,7 +1,6 @@
 #spotlight-container {
   width: 50%;
   min-width: 300px;
-  box-shadow: 0px 2px 8px rgba(10, 36, 110, 0.61);
   margin: 0px auto 40px;
   max-height: 200px;
   overflow: hidden;

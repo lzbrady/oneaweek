@@ -68,8 +68,29 @@ export function getSchools(startDoc) {
     .get();
 }
 
+// Acts
+export function getActs(classId) {
+  return fire
+    .firestore()
+    .collection("acts")
+    .where("classId", "==", classId)
+    .get();
+}
+
+export function deleteAct(actId) {
+  return fire
+    .firestore()
+    .collection("acts")
+    .doc(actId)
+    .delete();
+}
+
 // Blogs
 export function addBlog(blogName, content, preview) {
+  if (blogName === "") {
+    blogName = "New Blog Article";
+  }
+
   fire
     .database()
     .ref("blog_posts")

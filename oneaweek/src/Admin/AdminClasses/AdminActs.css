@@ -1,0 +1,51 @@
+.admin-act-wrapper {
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
+.admin-act-wrapper:hover {
+    background-color: #dddddd !important;
+}
+
+.admin-act-wrapper:nth-child(odd) {
+    background-color: #cacaca;
+}
+
+.admin-act-name {
+    margin: 0px;
+    display: inline-block;
+}
+
+.admin-act-act {
+    margin: 0px;
+    margin-left: 8px;
+}
+
+.admin-act-edit,
+.admin-act-delete {
+    display: inline-block;
+    margin: 0px;
+    margin-left: 15px;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    float: right;
+}
+
+.admin-act-edit:hover,
+.admin-act-delete:hover {
+    cursor: pointer;
+    background: rgba(190, 190, 190, 0.51);
+}
+
+.admin-act-edit {
+    color: #4275ff;
+}
+
+.admin-act-delete {
+    color: #ff482c;
+}

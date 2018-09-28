@@ -25,6 +25,8 @@
     padding: 25px 5px;
     border-bottom: 1px solid rgba(185, 185, 185, 0.48);
     box-sizing: border-box;
+    max-height: 150px;
+    overflow: hidden;
 }
 
 .blog-post-preview-wrapper:hover {

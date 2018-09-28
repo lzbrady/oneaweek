@@ -4,6 +4,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 import AdminSchools from "./AdminSchools";
 import AdminAddClass from "./AdminAddClass";
+import AdminActs from "./AdminActs";
 import {getClasses, deleteSchool, deleteClass} from "../../server/admin_server";
 
 import "./AdminClasses.css";
@@ -14,11 +15,13 @@ class AdminClasses extends Component {
 
         this.state = {
             showClasses: false,
+            showActs: false,
             classes: [],
             addingClass: false,
             state: "",
             schoolName: "",
-            schoolId: ""
+            schoolId: "",
+            classId: ""
         };
 
         this.loadClasses = this
@@ -126,14 +129,17 @@ class AdminClasses extends Component {
     render() {
         return (
             <div>
-                {!this.state.showClasses && <AdminSchools loadClasses={this.loadClasses}/>}
+                {!this.state.showActs && !this.state.showClasses && <AdminSchools loadClasses={this.loadClasses}/>}
                 {this.state.showClasses && <h1>{this.state.schoolName}
                     ({this.state.state})</h1>}
                 {this.state.showClasses && this
                     .state
                     .classes
                     .map((clazz, index) => {
-                        return <div className="admin-list-object admin-list-item" key={index}>{clazz.teacher}
+                        return <div
+                            className="admin-list-object admin-list-item"
+                            key={index}
+                            onClick={() => this.setState({showActs: true, classId: clazz.id, showClasses: false})}>{clazz.teacher}
                             <div className="delete-icon" onClick={() => this.confirmClassDelete(clazz.id)}>DELETE</div>
                         </div>
                     })}
@@ -145,6 +151,7 @@ class AdminClasses extends Component {
                     schoolId={this.state.schoolId}
                     close={() => this.setState({addingClass: false})}
                     addClass={this.addClass}/>}
+                {this.state.showActs && <AdminActs classId={this.state.classId}/>}
             </div>
         );
     }

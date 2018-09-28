@@ -115,7 +115,7 @@ class TextEditor extends Component {
     }
 
     render() {
-        return <div className="admin-component">
+        return <div>
             <button
                 onClick={this._onHeadingOneClick}
                 className={this.state.isHeadingOne
@@ -144,7 +144,7 @@ class TextEditor extends Component {
                 onChange={this.onChange}
                 handleKeyCommand={this.handleKeyCommand}
                 blockStyleFn={this.myBlockStyleFn}/>
-            <button onClick={this.postBlog}>Post</button>
+            <button onClick={this.postBlog} className="blog-review-save-btn blog-review-btn">Post</button>
         </div>
     }
 }
