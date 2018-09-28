@@ -5,7 +5,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import AdminSchools from "./AdminSchools";
 import AdminAddClass from "./AdminAddClass";
 import AdminActs from "./AdminActs";
-import {getClasses, deleteSchool, deleteClass} from "../../server/admin_server";
+import {getClasses, deleteSchool, deleteClass, setNewSchoolName} from "../../server/admin_server";
 
 import "./AdminClasses.css";
 
@@ -35,6 +35,9 @@ class AdminClasses extends Component {
             .bind(this);
         this.deleteClass = this
             .deleteClass
+            .bind(this);
+        this.setSchooName = this
+            .setSchooName
             .bind(this);
     }
 
@@ -126,11 +129,21 @@ class AdminClasses extends Component {
         });
     }
 
+    setSchooName(event) {
+        var newName = event.target.value;
+        this.setState({schoolName: newName});
+        setTimeout(() => {
+            if (newName === this.state.schoolName) {
+                setNewSchoolName(this.state.schoolId, newName);
+            }
+        }, 1500);
+    }
+
     render() {
         return (
             <div>
                 {!this.state.showActs && !this.state.showClasses && <AdminSchools loadClasses={this.loadClasses}/>}
-                {this.state.showClasses && <h1>{this.state.schoolName}
+                {this.state.showClasses && <h1><input className="edit-input" value={this.state.schoolName} onChange={this.setSchooName}/>
                     ({this.state.state})</h1>}
                 {this.state.showClasses && this
                     .state
