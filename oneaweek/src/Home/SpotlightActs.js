@@ -24,6 +24,14 @@ class SpotlightActs extends Component {
 
     componentDidMount() {
         this.getNewAct();
+
+        this.interval = setInterval(() => {
+            this.getNewAct();
+        }, 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     getNewAct() {
