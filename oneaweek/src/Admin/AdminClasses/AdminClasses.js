@@ -5,7 +5,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import AdminSchools from "./AdminSchools";
 import AdminAddClass from "./AdminAddClass";
 import AdminActs from "./AdminActs";
-import {getClasses, deleteSchool, deleteClass, setNewSchoolName} from "../../server/admin_server";
+import {getClasses, deleteSchool, deleteClass, setNewSchoolName, setNewTeacherName} from "../../server/admin_server";
 
 import "./AdminClasses.css";
 
@@ -21,7 +21,8 @@ class AdminClasses extends Component {
             state: "",
             schoolName: "",
             schoolId: "",
-            classId: ""
+            classId: "",
+            classTeacher: ""
         };
 
         this.loadClasses = this
@@ -38,6 +39,12 @@ class AdminClasses extends Component {
             .bind(this);
         this.setSchooName = this
             .setSchooName
+            .bind(this);
+        this.setTeacherName = this
+            .setTeacherName
+            .bind(this);
+        this.goBack = this
+            .goBack
             .bind(this);
     }
 
@@ -139,11 +146,33 @@ class AdminClasses extends Component {
         }, 1500);
     }
 
+    setTeacherName(event) {
+        var newName = event.target.value;
+        this.setState({classTeacher: newName});
+        setTimeout(() => {
+            if (newName === this.state.classTeacher) {
+                setNewTeacherName(this.state.classId, newName);
+            }
+        }, 1500);
+    }
+
+    goBack() {
+        if (this.state.showClasses) {
+            this.setState({showClasses: false})
+        } else if (this.state.showActs) {
+            this.setState({showClasses: true, showActs: false});
+        }
+    }
+
     render() {
         return (
             <div>
+                <button onClick={this.goBack} className="back-btn-underline">&lt; BACK</button>
                 {!this.state.showActs && !this.state.showClasses && <AdminSchools loadClasses={this.loadClasses}/>}
-                {this.state.showClasses && <h1><input className="edit-input" value={this.state.schoolName} onChange={this.setSchooName}/>
+                {this.state.showClasses && <h1><input
+                    className="edit-input"
+                    value={this.state.schoolName}
+                    onChange={this.setSchooName}/>
                     ({this.state.state})</h1>}
                 {this.state.showClasses && this
                     .state
@@ -152,7 +181,7 @@ class AdminClasses extends Component {
                         return <div
                             className="admin-list-object admin-list-item"
                             key={index}
-                            onClick={() => this.setState({showActs: true, classId: clazz.id, showClasses: false})}>{clazz.teacher}
+                            onClick={() => this.setState({showActs: true, classId: clazz.id, classTeacher: clazz.teacher, showClasses: false})}>{clazz.teacher}
                             <div className="delete-icon" onClick={() => this.confirmClassDelete(clazz.id)}>DELETE</div>
                         </div>
                     })}
@@ -164,7 +193,10 @@ class AdminClasses extends Component {
                     schoolId={this.state.schoolId}
                     close={() => this.setState({addingClass: false})}
                     addClass={this.addClass}/>}
-                {this.state.showActs && <AdminActs classId={this.state.classId}/>}
+                {this.state.showActs && <AdminActs
+                    classId={this.state.classId}
+                    teacherName={this.state.classTeacher}
+                    setTeacherName={this.setTeacherName}/>}
             </div>
         );
     }

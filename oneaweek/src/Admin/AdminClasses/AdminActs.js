@@ -83,7 +83,10 @@ class AdminActs extends Component {
 
     render() {
         return <div>
-            <h1>Acts</h1>
+            <h1><input
+                className="edit-input"
+                value={this.props.teacherName}
+                onChange={this.props.setTeacherName}/> - Acts</h1>
             {this
                 .state
                 .acts
