@@ -35,6 +35,7 @@ class App extends Component {
                             <PrivateRoute exact path="/admin/classes" component={AdminClasses}/>
                             <PrivateRoute exact path="/admin/blogs" component={AdminBlogs}/>
                             <PrivateRoute exact path="/admin/blogs/add" component={AdminAddBlog}/>
+                            <PrivateRoute exact path="/admin/blogs/edit/:id" component={AdminAddBlog}/>
                         </div>
                     </div>
                 </HashRouter>

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import {Editor, EditorState, RichUtils, ContentState} from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
+import {stateFromHTML} from 'draft-js-import-html';
 
 import "./Draft.css";
 
@@ -18,13 +19,23 @@ class TextEditor extends Component {
             isHeadingTwo: false,
             isHeadingThree: false,
             isCode: false,
-            isBlockQuote: false
+            isBlockQuote: false,
+            prevProps: ""
         };
 
         this.onChange = (editorState) => this.setState({editorState});
         this.myBlockStyleFn = this
             .myBlockStyleFn
             .bind(this);
+    }
+
+    componentDidUpdate() {
+        if (this.props.content !== this.state.prevProps) {
+            this.setState({
+                editorState: EditorState.createWithContent(stateFromHTML(this.props.content)),
+                prevProps: this.props.content
+            });
+        }
     }
 
     myBlockStyleFn(contentBlock) {
@@ -144,7 +155,9 @@ class TextEditor extends Component {
                 onChange={this.onChange}
                 handleKeyCommand={this.handleKeyCommand}
                 blockStyleFn={this.myBlockStyleFn}/>
-            <button onClick={this.postBlog} className="blog-review-save-btn blog-review-btn">Post</button>
+            <button
+                onClick={this.postBlog}
+                className="blog-review-save-btn blog-review-btn">Post</button>
         </div>
     }
 }

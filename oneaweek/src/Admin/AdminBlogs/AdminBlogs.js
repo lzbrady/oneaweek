@@ -68,7 +68,6 @@ class AdminBlogs extends Component {
         deleteBlog(blogTitle);
         var blogPosts = this.state.blogPosts;
         for (var i = 0; i < blogPosts.length; i++) {
-            console.log("BlogPost[i]", blogPosts[i].title);
             if (blogPosts[i].title === blogTitle) {
                 blogPosts.splice(i, 1);
                 break;
@@ -96,7 +95,12 @@ class AdminBlogs extends Component {
                                     <p className="blog-post-admin-full-article">See Full Article</p>
                                 </Link>
                                 <div className="blog-actions-container">
-                                    <div className="delete-icon" onClick={() => this.confirmDelete(blog.title)}>DELETE</div>
+                                    <div
+                                        className="admin-act-delete"
+                                        onClick={() => this.confirmDelete(blog.title)}>DELETE</div>
+                                    <Link to={"/admin/blogs/edit/" + blog.title}>
+                                        <div className="admin-act-edit" onClick={() => {}}>EDIT</div>
+                                    </Link>
                                 </div>
                             </nav>
                         );

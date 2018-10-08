@@ -8,6 +8,7 @@ import success from "../../Images/success_check.png";
 import Review from "./Review";
 
 import {addBlog} from "../../server/admin_server";
+import {getFullBlog} from "../../server/server";
 
 class AdminAddBlog extends Component {
 
@@ -37,6 +38,27 @@ class AdminAddBlog extends Component {
         this.setBlogTitle = this
             .setBlogTitle
             .bind(this);
+    }
+
+    componentDidMount() {
+        var blogTitle = this
+            .props
+            .location
+            .pathname
+            .substring(this.props.location.pathname.lastIndexOf("/") + 1);
+
+        if (blogTitle !== "add") {
+            getFullBlog(blogTitle)
+                .once("value")
+                .then(snapshot => {
+                    this.setState({
+                        blogMarkup: snapshot
+                            .val()
+                            .content,
+                        blogTitle: blogTitle
+                    });
+                });
+        }
     }
 
     setBlogTitle(event) {
@@ -77,8 +99,9 @@ class AdminAddBlog extends Component {
                     placeholder="Blog Title"
                     id="blog-title-input"
                     type="text"
+                    value={this.state.blogTitle}
                     onChange={this.setBlogTitle}/>
-                <TextEditor post={this.review}/>
+                <TextEditor content={this.state.blogMarkup} post={this.review}/>
             </div>
             {this.state.reviewing && !(this.state.uploadSuccessful || this.state.uploadError) && <Review
                 blogTitle={this.state.blogTitle}
