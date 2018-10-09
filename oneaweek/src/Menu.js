@@ -28,6 +28,9 @@ class Menu extends Component {
                             <Link to="/blog">Blog</Link>
                         </nav>
                         <nav className="menu-item">
+                            <Link to="/podcast">Podcast</Link>
+                        </nav>
+                        <nav className="menu-item">
                             <Link to="/sponsors">Sponsors</Link>
                         </nav>
                         <nav className="menu-item">

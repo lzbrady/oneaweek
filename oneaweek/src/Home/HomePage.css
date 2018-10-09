@@ -18,3 +18,35 @@
     margin-bottom: 0px;
     color: #0a246e;
 }
+
+.blog-post-preview-wrapper-home {
+    width: 80%;
+    margin: 0px auto;
+    padding: 25px 5px;
+    background-color: rgba(206, 206, 206, 0.48);
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center !important;
+}
+
+.blog-post-preview-wrapper-home:hover {
+    cursor: pointer;
+    background-color: rgba(206, 206, 206, 0.6);
+}
+
+.blog-post-preview-wrapper-home a {
+    text-decoration: none;
+}
+
+.blog-post-preview-title-home {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.blog-post-preview-preview-home {
+    color: #6e6e6e;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 10px;
+}

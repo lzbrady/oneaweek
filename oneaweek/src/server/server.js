@@ -69,6 +69,14 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 100000000);
 }
 
+export function getLatestBlog() {
+  return fire
+    .database()
+    .ref("blogs")
+    .orderByChild("timestamp")
+    .limitToLast(1);
+}
+
 export function getBlogPreviews(start) {
   return fire
     .database()
