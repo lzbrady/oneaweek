@@ -25,13 +25,16 @@ class Menu extends Component {
                             <Link to="/">Home</Link>
                         </nav>
                         <nav className="menu-item">
+                            <Link to="/acts">Acts</Link>
+                        </nav>
+                        <nav className="menu-item">
                             <Link to="/blog">Blog</Link>
                         </nav>
                         <nav className="menu-item">
                             <Link to="/podcast">Podcast</Link>
                         </nav>
                         <nav className="menu-item">
-                            <Link to="/sponsors">Sponsors</Link>
+                            <Link to="/about">About</Link>
                         </nav>
                         <nav className="menu-item">
                             <Link to="/share">Share</Link>

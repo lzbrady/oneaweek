@@ -1,29 +1,24 @@
 import React, {Component} from "react";
 
-import {getAllSchools} from "../../server/server";
+import {getAllSchools} from "../server/server";
 
-import "./AdminSchools.css";
-import AdminAddSchool from "./AdminAddSchool";
+import "./Acts.css";
+import Classes from "./Classes";
 
-class AdminSchools extends Component {
+class Schools extends Component {
 
     constructor() {
         super();
 
         this.state = {
-            lastSchoolDoc: {
-                null: true
-            },
             schools: [],
-            addingSchool: false
+            showClasses: false,
+            schoolId: "",
+            schoolName: ""
         }
 
         this.getSchools = this
             .getSchools
-            .bind(this);
-
-        this.addSchool = this
-            .addSchool
             .bind(this);
     }
 
@@ -32,7 +27,7 @@ class AdminSchools extends Component {
     }
 
     getSchools() {
-        getAllSchools(this.state.lastSchoolDoc).then((snapshot) => {
+        getAllSchools({null: true}).then((snapshot) => {
             var schools = [];
 
             for (var i = 0; i < snapshot.docs.length; i++) {
@@ -50,28 +45,14 @@ class AdminSchools extends Component {
                 })
             }
 
-            this.setState({
-                lastSchoolDoc: snapshot.docs[snapshot.docs.length - 1],
-                schools: schools
-            });
+            this.setState({schools: schools});
         });
-    }
-
-    addSchool(id, schoolName, state) {
-        var schools = this.state.schools;
-        var showState = true;
-        for (var i = 0; i < schools.length; i++) {
-            if (schools[i].state === state) {
-                showState = false;
-            }
-        }
-        schools.push({name: schoolName, state: state, id: id, showState: showState});
     }
 
     render() {
         return <div>
-            <h1>Schools</h1>
-            {this
+            {!this.state.showClasses && <h1>Schools</h1>}
+            {!this.state.showClasses && this
                 .state
                 .schools
                 .map((school, index) => {
@@ -79,21 +60,18 @@ class AdminSchools extends Component {
                         <div
                             key={index}
                             className="admin-list-object"
-                            onClick={() => this.props.loadClasses(school.name, school.id, school.state)}>
+                            onClick={() => this.setState({showClasses: true, schoolName: school.name, schoolId: school.id, state: school.state})}>
                             {school.showState && <p className="admin-list-header">{school.state}</p>}
                             <p className="admin-list-item">{school.name}</p>
                         </div>
                     )
                 })}
-            <button
-                className="admin-add-btn"
-                onClick={() => this.setState({addingSchool: true})}>Add School</button>
-            {this.state.addingSchool && <AdminAddSchool
+            {this.state.showClasses && <Classes
                 schoolId={this.state.schoolId}
-                close={() => this.setState({addingSchool: false})}
-                addSchool={this.addSchool}/>}
-        </div>;
+                schoolName={this.state.schoolName}
+                state={this.state.state}/>}
+        </div>
     }
 }
 
-export default AdminSchools;
+export default Schools;

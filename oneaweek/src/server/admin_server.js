@@ -7,14 +7,6 @@ const settings = {
 firestore.settings(settings);
 
 // Classes
-export function getClasses(schoolId) {
-  return fire
-    .firestore()
-    .collection("classes")
-    .where("schoolId", "==", schoolId)
-    .get();
-}
-
 export function addClass(teacher, schoolId) {
   if (teacher.trim() === "") {
     return { error: true };
@@ -63,22 +55,6 @@ export function deleteSchool(schoolId) {
     .delete();
 }
 
-export function getSchools(startDoc) {
-  if (!startDoc.null) {
-    return fire
-      .firestore()
-      .collection("schools")
-      .orderBy("state")
-      .startAfter(startDoc)
-      .get();
-  }
-  return fire
-    .firestore()
-    .collection("schools")
-    .orderBy("state")
-    .get();
-}
-
 export function setNewSchoolName(schoolId, schoolName) {
   fire
     .firestore()
@@ -88,14 +64,6 @@ export function setNewSchoolName(schoolId, schoolName) {
 }
 
 // Acts
-export function getActs(classId) {
-  return fire
-    .firestore()
-    .collection("acts")
-    .where("classId", "==", classId)
-    .get();
-}
-
 export function deleteAct(actId) {
   return fire
     .firestore()

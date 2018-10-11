@@ -46,23 +46,25 @@ class SpotlightActs extends Component {
                     .getElementById("spotlight-container")
                     .classList
                     .remove("refreshing");
-                this.setState({
-                    act: {
-                        name: snapshot
-                            .docs[0]
-                            .data()
-                            .name,
-                        act: snapshot
-                            .docs[0]
-                            .data()
-                            .act,
-                        state: snapshot
-                            .docs[0]
-                            .data()
-                            .state
-                    },
-                    shouldFetchNew: true
-                });
+                if (snapshot.docs[0]) {
+                    this.setState({
+                        act: {
+                            name: snapshot
+                                .docs[0]
+                                .data()
+                                .name,
+                            act: snapshot
+                                .docs[0]
+                                .data()
+                                .act,
+                            state: snapshot
+                                .docs[0]
+                                .data()
+                                .state
+                        },
+                        shouldFetchNew: true
+                    });
+                }
             });
         }
     }

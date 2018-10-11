@@ -5,7 +5,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import AdminSchools from "./AdminSchools";
 import AdminAddClass from "./AdminAddClass";
 import AdminActs from "./AdminActs";
-import {getClasses, deleteSchool, deleteClass, setNewSchoolName, setNewTeacherName} from "../../server/admin_server";
+import {deleteSchool, deleteClass, setNewSchoolName, setNewTeacherName} from "../../server/admin_server";
+import {getClasses} from "../../server/server";
 
 import "./AdminClasses.css";
 

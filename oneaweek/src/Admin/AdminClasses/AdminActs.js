@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {confirmAlert} from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
-import {getActs, deleteAct} from "../../server/admin_server";
+import {deleteAct} from "../../server/admin_server";
+import {getActs} from "../../server/server";
 
 import "./AdminActs.css";
 

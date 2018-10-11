@@ -9,6 +9,15 @@ firestore.settings(settings);
 var Filter = require("bad-words"),
   filter = new Filter();
 
+// Acts
+export function getActs(classId) {
+  return fire
+    .firestore()
+    .collection("acts")
+    .where("classId", "==", classId)
+    .get();
+}
+
 export function shareAct(name, act, classId, state) {
   if (name === "" || act === "") {
     return { err: "Fill out all fields before submitting." };
@@ -24,22 +33,6 @@ export function shareAct(name, act, classId, state) {
       index: getRandomNumber(),
       state
     });
-}
-
-export function getSchools(state) {
-  return fire
-    .firestore()
-    .collection("schools")
-    .where("state", "==", state)
-    .get();
-}
-
-export function getClasses(schoolId) {
-  return fire
-    .firestore()
-    .collection("classes")
-    .where("schoolId", "==", schoolId)
-    .get();
 }
 
 export function getSpotlightAct() {
@@ -65,10 +58,41 @@ function getRandomAct(num, greaterThan) {
     .get();
 }
 
-function getRandomNumber() {
-  return Math.floor(Math.random() * 100000000);
+// Schools
+export function getSchools(state) {
+  return fire
+    .firestore()
+    .collection("schools")
+    .where("state", "==", state)
+    .get();
 }
 
+export function getAllSchools(startDoc) {
+  if (!startDoc.null) {
+    return fire
+      .firestore()
+      .collection("schools")
+      .orderBy("state")
+      .startAfter(startDoc)
+      .get();
+  }
+  return fire
+    .firestore()
+    .collection("schools")
+    .orderBy("state")
+    .get();
+}
+
+// Classes
+export function getClasses(schoolId) {
+  return fire
+    .firestore()
+    .collection("classes")
+    .where("schoolId", "==", schoolId)
+    .get();
+}
+
+// Blogs
 export function getLatestBlog() {
   return fire
     .database()
@@ -91,4 +115,9 @@ export function getFullBlog(blogName) {
     .database()
     .ref("blog_posts")
     .child(blogName);
+}
+
+// Utility
+function getRandomNumber() {
+  return Math.floor(Math.random() * 100000000);
 }
