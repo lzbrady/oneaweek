@@ -34,14 +34,14 @@ class BlogPage extends Component {
             preview: child.val().preview
           });
         });
-        this.setState({ lastTimestamp: lastTimestamp, blogPosts: blogPosts });
+        this.setState({ lastTimestamp: lastTimestamp, blogPosts: blogPosts.reverse() });
       });
   }
 
   render() {
     return (
       <HashRouter>
-        <div>
+        <div className="pad-bottom">
           <h1 className="headline">1 a week stories</h1>
           {this.state.blogPosts.map(blog => {
             return (

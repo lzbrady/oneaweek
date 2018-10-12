@@ -51,7 +51,7 @@ class Schools extends Component {
 
     render() {
         return <div>
-            {!this.state.showClasses && <h1>Schools</h1>}
+            {!this.state.showClasses && <h1 className="acts-header">Schools</h1>}
             {!this.state.showClasses && this
                 .state
                 .schools
@@ -59,10 +59,10 @@ class Schools extends Component {
                     return (
                         <div
                             key={index}
-                            className="admin-list-object"
+                            className="list-object"
                             onClick={() => this.setState({showClasses: true, schoolName: school.name, schoolId: school.id, state: school.state})}>
-                            {school.showState && <p className="admin-list-header">{school.state}</p>}
-                            <p className="admin-list-item">{school.name}</p>
+                            {school.showState && <p className="list-header">{school.state}</p>}
+                            <p className="list-item">{school.name}</p>
                         </div>
                     )
                 })}

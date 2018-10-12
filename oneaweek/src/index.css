@@ -58,3 +58,7 @@ body {
     outline: none;
     border-bottom: 2px solid #0a246e;
 }
+
+.pad-bottom {
+    padding-bottom: 32px;
+}

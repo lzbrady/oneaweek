@@ -48,16 +48,16 @@ class Acts extends Component {
 
     render() {
         return <div>
-            <h1>{this.props.teacherName}
+            <h1 className="acts-header">{this.props.teacherName}
                 - Acts</h1>
             {this
                 .state
                 .acts
                 .map((act, index) => {
                     return (
-                        <div key={index} className="admin-act-wrapper">
-                            <h3 className="admin-act-name">{act.name}</h3>
-                            <p className="admin-act-act">{act.act}</p>
+                        <div key={index} className="list-object">
+                            <h3 className="act-name">{act.name}</h3>
+                            <p className="act-act">{act.act}</p>
                         </div>
                     )
                 })}

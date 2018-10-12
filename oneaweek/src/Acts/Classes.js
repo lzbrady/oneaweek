@@ -50,14 +50,14 @@ class Classes extends Component {
     render() {
         return (
             <div>
-                {!this.state.showActs && <h1>{this.props.schoolName}
+                {!this.state.showActs && <h1 className="acts-header">{this.props.schoolName}
                     ({this.props.state})</h1>}
                 {!this.state.showActs && this
                     .state
                     .classes
                     .map((clazz, index) => {
                         return <div
-                            className="admin-list-object admin-list-item"
+                            className="list-object list-item"
                             key={index}
                             onClick={() => this.setState({showActs: true, classId: clazz.id, classTeacher: clazz.teacher, showClasses: false})}>{clazz.teacher}
                         </div>
