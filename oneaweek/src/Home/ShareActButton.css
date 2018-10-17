@@ -6,7 +6,7 @@
     height: 50px;
     border: 2px solid #0a246e;
     background: #d2d6ef;
-    box-shadow: 0 4px 12px #0000008f;
+    /* box-shadow: 0 4px 12px #0000008f; */
     font-size: 20px;
     color: #0a246e;
     border-radius: 4px;
@@ -23,7 +23,7 @@
 #share-act-btn:hover {
     cursor: pointer;
     background: rgb(222, 225, 241);
-    box-shadow: 0 6px 12px #0000008f;
+    box-shadow: 0 4px 8px #0000008f;
 }
 
 #share-act-btn:focus {

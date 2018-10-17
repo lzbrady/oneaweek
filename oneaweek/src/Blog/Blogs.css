@@ -1,60 +1,66 @@
 .custom-block-quote {
-    font-size: 22px;
-    margin: 15px 30px;
-    font-weight: lighter;
-    border-left: 5px solid rgba(55, 65, 95, 0.6);
-    padding: 8px;
-    background-color: rgba(164, 171, 192, 0.3);
+  font-size: 22px;
+  margin: 15px 30px;
+  font-weight: lighter;
+  border-left: 5px solid rgba(55, 65, 95, 0.6);
+  padding: 8px;
+  background-color: rgba(164, 171, 192, 0.3);
 }
 
 .custom-block-quote::before {
-    content: '"';
-    margin-right: 20px;
-    font-family: fantasy;
-    font-size: 32px;
+  content: '"';
+  margin-right: 20px;
+  font-family: fantasy;
+  font-size: 32px;
 }
 
 .custom-block-quote .public-DraftStyleDefault-block {
-    display: inline;
+  display: inline;
 }
 
 .blog-post-preview-wrapper {
-    width: 80%;
-    min-width: 275px;
-    margin: 0px auto;
-    padding: 25px 5px;
-    border-bottom: 1px solid rgba(185, 185, 185, 0.48);
-    box-sizing: border-box;
-    max-height: 150px;
-    overflow: hidden;
+  width: 80%;
+  min-width: 275px;
+  margin: 0px auto;
+  padding: 25px 5px;
+  border-bottom: 1px solid rgba(185, 185, 185, 0.48);
+  box-sizing: border-box;
+  max-height: 150px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px #0000007a;
+  margin-bottom: 32px;
+  background-color: white;
 }
 
 .blog-post-preview-wrapper:hover {
-    background-color: rgba(185, 185, 185, 0.48);
-    cursor: pointer;
+  background-color: rgb(236, 236, 236);
+  cursor: pointer;
 }
 
 .blog-post-preview-wrapper a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .blog-post-preview-title {
-    text-align: left;
-    font-size: 28px;
-    font-weight: bold;
-    color: black;
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
 }
 
 .blog-post-preview-preview {
-    text-align: left;
-    color: #6e6e6e;
-    font-weight: bold;
-    margin-top: 0px;
-    margin-left: 10px;
+  text-align: left;
+  color: #6e6e6e;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 10px;
 }
 
 .blog-content {
-    width: 80%;
-    min-width: 275px;
-    margin: 20px auto;
+  width: 80%;
+  min-width: 275px;
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  background-color: white;
 }

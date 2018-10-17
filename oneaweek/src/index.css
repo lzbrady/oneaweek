@@ -1,64 +1,70 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Nunito", sans-serif;
-    /* font-family: 'Comfortaa', cursive; */
-    /* font-family: 'Amatic SC', cursive; */
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  /* font-family: 'Comfortaa', cursive; */
+  /* font-family: 'Amatic SC', cursive; */
+  background: url("./Images/LightBlueSubtleBackground.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .headline {
-    margin-top: 48px;
-    color: #0a246e;
+  margin-top: 48px;
+  color: #0a246e;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: initial;
+  display: initial;
 }
 
 .delete-icon {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 6px 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 6px 10px;
 }
 
 .delete-icon:hover {
-    background-color: #dedede;
-    color: red;
-    cursor: pointer;
+  background-color: #dedede;
+  color: red;
+  cursor: pointer;
 }
 
 .subtext {
-    color: #3e3e3e;
-    font-style: italic;
+  color: #3e3e3e;
+  font-style: italic;
 }
 
 .input-error {
-    border: 2px solid red !important;
+  border: 2px solid red !important;
 }
 
 .hightlight-text {
-    font-size: 20px;
-    background: linear-gradient(to right, #b6c9ff, #b6fff2, #00ff8e);
-    color: #0a246e;
+  font-size: 20px;
+  background: linear-gradient(to right, #b6c9ff, #b6fff2, #00ff8e);
+  color: #0a246e;
 }
 
 .edit-input {
-    font-size: 24px;
-    border: none;
-    border-bottom: 1px solid black;
-    max-width: 275px;
+  font-size: 24px;
+  border: none;
+  border-bottom: 1px solid black;
+  max-width: 275px;
+  background-color: transparent;
 }
 
 .edit-input:focus {
-    outline: none;
-    border-bottom: 2px solid #0a246e;
+  outline: none;
+  border-bottom: 2px solid #0a246e;
 }
 
 .pad-bottom {
-    padding-bottom: 32px;
+  padding-bottom: 32px;
 }

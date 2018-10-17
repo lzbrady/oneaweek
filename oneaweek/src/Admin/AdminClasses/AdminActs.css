@@ -5,41 +5,53 @@
     text-align: left;
     padding: 10px 5px;
     box-sizing: border-box;
+    background-color: white;
 }
-
 .admin-act-wrapper:hover {
     background-color: #dddddd !important;
 }
-
 .admin-act-wrapper:nth-child(odd) {
     background-color: #cacaca;
 }
 
 .admin-act-name {
-    margin: 0px;
+    margin: 0;
     display: inline-block;
 }
 
 .admin-act-act {
-    margin: 0px;
-    margin-left: 8px;
+    margin: 0 0 0 8px;
 }
 
-.admin-act-edit,
-.admin-act-delete {
+.admin-act-delete,
+.admin-act-edit {
     display: inline-block;
-    margin: 0px;
-    margin-left: 15px;
+    margin: 0 0 0 15px;
     padding: 2px 5px;
     box-sizing: border-box;
     border-radius: 5px;
     float: right;
 }
-
-.admin-act-edit:hover,
-.admin-act-delete:hover {
+.admin-act-delete:hover,
+.admin-act-edit:hover {
     cursor: pointer;
     background: rgba(190, 190, 190, 0.51);
+}
+
+.admin-act-wrapper .admin-edit-save {
+    color: #2aae3e;
+    background-color: #c2fac1;
+}
+.admin-act-wrapper .admin-edit-save:hover {
+    background-color: #d9f8d9;
+}
+
+.admin-act-wrapper .admin-edit-cancel {
+    color: #ff2700;
+    background-color: #ffd4d0;
+}
+.admin-act-wrapper .admin-edit-cancel:hover {
+    background-color: #ffe3e1;
 }
 
 .admin-act-edit {
@@ -48,4 +60,12 @@
 
 .admin-act-delete {
     color: #ff482c;
+}
+
+.admin-act-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 100%;
+    margin: 5px auto;
+    min-height: 75px;
 }

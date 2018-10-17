@@ -9,8 +9,9 @@ class AdminHome extends Component {
                 <nav className="manage-item">
                     <Link to="/admin/classes">Manage Classes</Link>
                 </nav>
-                <div className="manage-item">Manage Blogs</div>
-                <div className="manage-item">Manage Podcasts</div>
+                <nav className="manage-item">
+                    <Link to="/admin/blogs">Manage Blogs</Link>
+                </nav>
             </div>
         </HashRouter>
     }

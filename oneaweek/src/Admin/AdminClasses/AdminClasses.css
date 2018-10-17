@@ -75,6 +75,7 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.89);
     z-index: 100;
+    position: fixed;
     padding-top: 30vh;
 }
 

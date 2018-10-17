@@ -1,66 +1,71 @@
 .acts-header {
-    margin: 0px auto;
+  margin: 0px auto;
 }
 
 .list-object {
-    width: 75%;
-    margin: 0px auto;
-    position: relative;
-    background-color: #EF6461;
-    /* background-color: #dae4ff; */
+  width: 75%;
+  margin: 0px auto;
+  position: relative;
 }
 
-.list-object:nth-child(odd) {
-    background-color: #FFA69E;
-    /* background-color: #b6c9ff; */
+.act-item:nth-child(even), .list-item:nth-child(even), .list-object:nth-child(even) .list-item {
+  background-color: #ffbe88;
+}
+
+.act-item:nth-child(odd), .list-item:nth-child(odd), .list-object:nth-child(odd) .list-item {
+  background-color: #f1b6c2;
+}
+
+.list-item:nth-child(even):hover, .list-object:nth-child(even) .list-item:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #ffbe88;
+}
+
+.list-item:nth-child(odd):hover, .list-object:nth-child(odd) .list-item:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #f7c4ce;
 }
 
 .list-header {
-    font-size: 24px;
-    background-color: white;
-    font-weight: bold;
-    text-decoration: underline;
-    margin: 0px;
-    padding: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 0px;
+  padding: 16px;
 }
 
-.list-item {
-    padding: 6px;
-    font-size: 18px;
-    box-sizing: border-box;
-    border-bottom: 2px solid #a60000;
-    margin: 0px auto;
-}
-
-.list-item:hover {
-    cursor: pointer;
-    font-weight: bold;
-    background-color: rgb(241, 75, 72);
+.act-item, .list-item {
+  padding: 6px;
+  font-size: 18px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #0a246e;
+  margin: 0px auto;
 }
 
 .act-wrapper {
-    width: 80%;
-    max-width: 500px;
-    margin: auto;
-    text-align: left;
-    padding: 10px 5px;
-    box-sizing: border-box;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+  padding: 10px 5px;
+  box-sizing: border-box;
 }
 
 .act-wrapper:hover {
-    background-color: #dddddd !important;
+  background-color: #dddddd !important;
 }
 
 .act-wrapper:nth-child(odd) {
-    background-color: #cacaca;
+  background-color: #cacaca;
 }
 
 .act-name {
-    margin: 0px;
-    display: inline-block;
+  margin: 0px;
+  display: inline-block;
 }
 
 .act-act {
-    margin: 0px;
-    border-bottom: 2px solid #a60000;
+  margin: 0px;
 }

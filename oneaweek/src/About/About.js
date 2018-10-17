@@ -7,8 +7,8 @@ class About extends Component {
     render() {
         return <div>
             <div id="about-container">
-                <h1 className="home-page-body-heading headline">Our Mission</h1>
-                <p className="home-page-body-text">
+                <h1 className="home-page-body-heading headline act-header">Our Mission</h1>
+                <p className="home-page-body-text act-body">
                     We came together and reflected on the lack of selflessness within our
                     communities and in the grand scheme of things, our society. In today’s fast
                     paced stressful world, it is amazing what one door held, one dollar, or one
@@ -22,7 +22,7 @@ class About extends Component {
                     donate money to a cause that we personally connected with.
                 </p>
 
-                <p className="home-page-body-text">Boomer and Derek have enjoyed the fruits of
+                <p className="home-page-body-text act-body">Boomer and Derek have enjoyed the fruits of
                     their actions, and are here today to challenge “YOU” to join us on our 1 a week
                     pledge/challenge. Follow us on
                     <a
@@ -37,8 +37,8 @@ class About extends Component {
                     (@_1aweek) to see how you can make a difference.
                 </p>
 
-                <h1 className="home-page-body-heading headline">Ideas</h1>
-                <p className="home-page-body-text">
+                <h1 className="home-page-body-heading headline act-header">Ideas</h1>
+                <p className="home-page-body-text act-body">
                     We have even included a list of ideas to start you off! Please share photos of
                     your challenges or add comments to share more ideas with the community!
                 </p>
@@ -71,7 +71,7 @@ class About extends Component {
                 }}
                     src={banner}
                     alt="Unite Together"/>
-                <h1>Our Supporters</h1>
+                <h1 className="act-header">Our Supporters</h1>
                 <a
                     target="_blank"
                     rel="noopener noreferrer"

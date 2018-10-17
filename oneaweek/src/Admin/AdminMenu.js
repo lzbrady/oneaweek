@@ -13,9 +13,6 @@ class AdminMenu extends Component {
                 <nav className="admin-menu-item">
                     <Link to="/admin/blogs">Manage Blogs</Link>
                 </nav>
-                <nav className="admin-menu-item">
-                    <Link to="/admin/podcasts">Manage Podcasts</Link>
-                </nav>
             </div>
         </HashRouter>
     }

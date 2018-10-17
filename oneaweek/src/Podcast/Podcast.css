@@ -1,0 +1,37 @@
+.podcast-link-large {
+    width: 65%;
+    min-width: 275px;
+    max-width: 900px;
+}
+
+.podcast-link-small {
+    width: 45%;
+    position: absolute;
+    top: 0px;
+    transition: all 0.2s linear;
+}
+
+.podcast-link-small:hover {
+    width: 49%;
+    top: -2%;
+    cursor: pointer;
+}
+
+.pls-left {
+    margin-right: 5%;
+    left: 0px;
+}
+
+.pls-right {
+    margin-left: 5%;
+    right: 0px;
+}
+
+.podcast-link-small-container {
+    width: 65%;
+    min-width: 275px;
+    max-width: 900px;
+    margin: 20px auto;
+    position: relative;
+    height: 120px;
+}

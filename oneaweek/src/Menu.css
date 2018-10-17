@@ -1,57 +1,102 @@
 header {
-    height: 55px;
-    background-color: #0a246e;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    border-bottom: 2px solid #b6c9ff;
-    box-sizing: border-box;
+  height: 55px;
+  background-color: #0a246e;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0px 2px 6px #00000070;
+  box-sizing: border-box;
 }
 
 .logo {
-    width: 45px;
-    height: auto;
-    margin: 4px;
-    position: fixed;
+  width: 45px;
+  height: auto;
+  margin: 4px;
+  position: fixed;
 }
 
 .title {
-    display: inline-block;
-    margin: 0;
-    vertical-align: text-bottom;
-    left: 60px;
-    position: fixed;
+  display: inline-block;
+  margin: 0;
+  vertical-align: text-bottom;
+  left: 60px;
+  position: fixed;
 }
 
 .title a {
-    color: white;
-    font-size: 32px;
-    text-decoration: none;
-    line-height: 60px;
+  color: white;
+  font-size: 32px;
+  text-decoration: none;
+  line-height: 60px;
 }
 
 .menu {
-    position: fixed;
-    right: 10px;
-    top: 20px;
+  position: fixed;
+  right: 10px;
+  top: 13px;
+}
+
+.menu-open {
+  display: block !important;
 }
 
 .menu-item {
-    display: inline-block;
-    margin: 0;
+  display: inline-block;
+  margin: 0;
 }
 
 .menu-item a {
-    color: #ffffff;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 21px;
+  color: #ffffff;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 21px;
 }
 
 .menu-item a:hover {
-    background-color: #b6c9ff;
-    color: #0a246e;
+  background-color: #b6c9ff;
+  color: #0a246e;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  body .menu {
+    left: 0px;
+    top: 55px;
+    display: none;
+    width: 100%;
+    background-color: #0a246e;
+    border-top: 1px solid white;
+  }
+  body .menu-item {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 0px 50px;
+    border-bottom: 1px solid white;
+  }
+  body .menu-item a {
+    width: 100%;
+  }
+  body .mobile {
+    position: fixed;
+    right: 17px;
+    z-index: 200;
+    color: white;
+    top: 17px;
+  }
+  body .mobile:hover {
     cursor: pointer;
+    text-decoration: underline;
+  }
+  body .mobile-menu {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body .menu {
+    display: block !important;
+  }
 }

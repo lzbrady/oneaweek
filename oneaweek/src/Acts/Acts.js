@@ -55,7 +55,7 @@ class Acts extends Component {
                 .acts
                 .map((act, index) => {
                     return (
-                        <div key={index} className="list-object">
+                        <div key={index} className="list-object act-item">
                             <h3 className="act-name">{act.name}</h3>
                             <p className="act-act">{act.act}</p>
                         </div>

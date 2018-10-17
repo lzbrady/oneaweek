@@ -1,10 +1,12 @@
 import React, {Component} from "react";
+import {HashRouter, Link} from "react-router-dom";
 
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import StepConfirm from "./StepConfirm";
+import Contact from "../Contact/Contact";
 import "./SharePage.css";
 
 import {shareAct} from "../server/server";
@@ -153,7 +155,7 @@ class SharePage extends Component {
     }
 
     submitAct(firstName, act) {
-        if ((false && firstName === "") || act === "") {
+        if (firstName === "" || act === "") {
             this.setState({error: "Fill out all fields before submitting."});
         } else {
             this.setState({error: ""});
@@ -207,7 +209,7 @@ class SharePage extends Component {
                         4
                     </div>
                 </div>
-                <p id="pipeline">{this.state.pipeline}</p>
+                {this.state.step < 5 && <p id="pipeline">{this.state.pipeline}</p>}
                 {this.state.step === 1 && <Step1 action={this.chooseState}/>}
                 {this.state.step === 2 && <Step2 action={this.chooseSchool} state={this.state.state}/>}
                 {this.state.step === 3 && <Step3 action={this.chooseClass} schoolId={this.state.school.id}/>}
@@ -220,8 +222,21 @@ class SharePage extends Component {
                 {this.state.step < 5 && <button id="back-btn" onClick={() => this.moveStep(-1)}>
                     BACK
                 </button>}
-                { this.state.step < 5 && <a href="/" id="request-btn">Don't See Class/School?</a> }
-                { this.state.step === 5 && <StepConfirm/> }
+                {this.state.step < 5 && <button id="back-btn" onClick={() => this.setState({class: 
+                    {id: "guestClass", teacher: "No School Affiliation"}, 
+                    state: "guestState",
+                    school: {id: "guestSchool", name: "No School Affiliation"},
+                    step: 4})}>
+                    Share as Guest
+                </button>}
+
+                <HashRouter>
+                    <nav>
+                        <Link to="/contact" id="request-btn">Don't See Class/School?</Link>
+                    </nav>
+                </HashRouter>
+
+                {this.state.step === 5 && <h2>Act shared under<br/>{this.state.class.teacher}</h2>}
             </div>
         );
     }

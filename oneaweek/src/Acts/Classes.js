@@ -43,6 +43,11 @@ class Classes extends Component {
                             };
                         })
                 });
+
+                console.log("Length: " + snapshot.size);
+                if (snapshot.size === 1 && snapshot.docs[0].id === "guestClass") {
+                    this.setState({classId: snapshot.docs[0].id, showActs: true, classTeacher: "No School Affiliation"});
+                } else {}
             }
         });
     }

@@ -72,6 +72,14 @@ export function deleteAct(actId) {
     .delete();
 }
 
+export function updateAct(actId, act) {
+  fire
+    .firestore()
+    .collection("acts")
+    .doc(actId)
+    .update("act", act);
+}
+
 // Blogs
 export function addBlog(blogName, content, preview) {
   if (blogName === "") {

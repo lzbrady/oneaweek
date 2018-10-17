@@ -8,7 +8,7 @@ class Menu extends Component {
     constructor() {
         super();
         this.state = {
-            menuOpen: true
+            menuOpen: false
         }
     }
 
@@ -20,7 +20,14 @@ class Menu extends Component {
                     <nav className="title">
                         <Link to="/">1 a Week</Link>
                     </nav>
-                    <div className="menu">
+                    {!this.state.menuOpen && <i
+                        class="mobile w3-xxxlarge mobile-menu fa fa-bars"
+                        onClick={() => this.setState({menuOpen: true})}>MENU</i>}
+                    {this.state.menuOpen && <i
+                        class="mobile w3-xxxlarge mobile-close fa fa-close"
+                        onClick={() => this.setState({menuOpen: false})}>CLOSE</i>}
+
+                    <div className={this.state.menuOpen ? "menu menu-open" : "menu"}>
                         <nav className="menu-item">
                             <Link to="/">Home</Link>
                         </nav>
@@ -42,7 +49,7 @@ class Menu extends Component {
                     </div>
                 </header>
             </HashRouter>
-        );
+        )
     }
 }
 

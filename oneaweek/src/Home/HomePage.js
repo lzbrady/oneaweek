@@ -38,7 +38,7 @@ class HomePage extends Component {
     render() {
         return (
             <HashRouter>
-                <div id="body">
+                <div id="body pad-bottom">
                     <ShareActButton/>
                     <h1 id="spotlight-title">Get Inspiration From Others!</h1>
                     <SpotlightActs/>

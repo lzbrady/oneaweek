@@ -1,0 +1,89 @@
+#footer-wrapper {
+  background-color: black;
+  position: relative;
+  color: white;
+}
+
+#footer-wrapper a {
+  color: white;
+  text-decoration: none;
+}
+
+#footer-wrapper a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#footer-social-media-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#footer-social-media-wrapper img {
+  width: 40px;
+  height: 40px;
+  margin-top: 12px;
+  margin-left: 12px;
+  border-radius: 12px;
+}
+
+.footer-insta:hover {
+  cursor: pointer;
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+.footer-facebook:hover {
+  cursor: pointer;
+  background: rgb(59, 89, 152);
+}
+
+.footer-col-one {
+  text-align: center;
+}
+
+.footer-col-three {
+  width: 30%;
+  padding-top: 32px;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  min-width: 275px;
+}
+
+.footer-logo {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  color: white;
+  font-size: 32px;
+  margin: 0;
+}
+
+.footer-list-header {
+  font-size: 20px;
+  margin: 0px auto 24px;
+  font-weight: bold;
+}
+
+.footer-list {
+}
+
+.footer-list-item {
+}
+
+@media screen and (max-width: 650px) {
+  #footer-social-media-wrapper img {
+    display: block;
+  }
+}

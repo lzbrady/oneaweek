@@ -4,6 +4,7 @@
 
 .public-DraftEditor-content {
     border: 1px solid black;
+    background-color: white;
     width: 75%;
     min-width: 250px;
     margin: 20px auto;

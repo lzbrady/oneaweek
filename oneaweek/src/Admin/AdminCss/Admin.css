@@ -9,6 +9,7 @@
     margin: 20px auto;
     padding: 20px;
     box-sizing: border-box;
+    background-color: white;
 }
 
 .manage-item a {

@@ -9,6 +9,7 @@
   padding: 4px;
   box-sizing: border-box;
   position: relative;
+  background-color: white;
 }
 
 .spotlight-name {
@@ -19,7 +20,7 @@
 }
 
 .refreshing {
-  opacity: 0.6;
+  background-color: rgb(206, 206, 206) !important;
 }
 
 #spotlight-refresh {
