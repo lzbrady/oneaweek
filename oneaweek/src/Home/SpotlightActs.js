@@ -60,7 +60,12 @@ class SpotlightActs extends Component {
                             state: snapshot
                                 .docs[0]
                                 .data()
-                                .state
+                                .state === "guestState"
+                                ? "Guest"
+                                : snapshot
+                                    .docs[0]
+                                    .data()
+                                    .state
                         },
                         shouldFetchNew: true
                     });

@@ -38,10 +38,17 @@ class Acts extends Component {
                         .docs[i]
                         .data()
                         .act,
+                    imageUrl: snapshot
+                        .docs[i]
+                        .data()
+                        .imageUrl,
                     id: snapshot.docs[i].id
                 })
             }
 
+            acts.forEach(act => {
+                console.log("Act:", act);
+            });
             this.setState({acts: acts});
         });
     }
@@ -58,6 +65,7 @@ class Acts extends Component {
                         <div key={index} className="list-object act-item">
                             <h3 className="act-name">{act.name}</h3>
                             <p className="act-act">{act.act}</p>
+                            {act.imageUrl !== "" && <img className="act-image-large" src={act.imageUrl} alt="Good deed accompanying photo."/>}
                         </div>
                     )
                 })}

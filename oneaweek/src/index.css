@@ -4,7 +4,8 @@ body {
   font-family: "Nunito", sans-serif;
   /* font-family: 'Comfortaa', cursive; */
   /* font-family: 'Amatic SC', cursive; */
-  background: url("./Images/LightBlueSubtleBackground.png") no-repeat center center fixed;
+  background: url("./Images/LightBlueSubtleBackground.png") no-repeat center
+    center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -67,4 +68,28 @@ body {
 
 .pad-bottom {
   padding-bottom: 32px;
+}
+
+.act-image-large {
+  max-width: 90%;
+  max-height: 350px;
+  margin: 20px;
+}
+
+.loading-circle {
+  width: 75px;
+  height: 75px;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

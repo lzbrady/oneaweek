@@ -21,10 +21,10 @@ class Menu extends Component {
                         <Link to="/">1 a Week</Link>
                     </nav>
                     {!this.state.menuOpen && <i
-                        class="mobile w3-xxxlarge mobile-menu fa fa-bars"
+                        className="mobile w3-xxxlarge mobile-menu fa fa-bars"
                         onClick={() => this.setState({menuOpen: true})}>MENU</i>}
                     {this.state.menuOpen && <i
-                        class="mobile w3-xxxlarge mobile-close fa fa-close"
+                        className="mobile w3-xxxlarge mobile-close fa fa-close"
                         onClick={() => this.setState({menuOpen: false})}>CLOSE</i>}
 
                     <div className={this.state.menuOpen ? "menu menu-open" : "menu"}>

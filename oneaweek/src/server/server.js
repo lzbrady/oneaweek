@@ -18,7 +18,7 @@ export function getActs(classId) {
     .get();
 }
 
-export function shareAct(name, act, classId, state) {
+export function shareAct(name, act, imageUrl, classId, state) {
   if (name === "" || act === "") {
     return { err: "Fill out all fields before submitting." };
   }
@@ -29,6 +29,7 @@ export function shareAct(name, act, classId, state) {
     .add({
       name: filter.clean(name),
       act: filter.clean(act),
+      imageUrl: imageUrl,
       classId: classId,
       index: getRandomNumber(),
       state

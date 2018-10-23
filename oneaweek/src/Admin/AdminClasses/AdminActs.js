@@ -55,6 +55,10 @@ class AdminActs extends Component {
                         .docs[i]
                         .data()
                         .act,
+                    imageUrl: snapshot
+                        .docs[i]
+                        .data()
+                        .imageUrl,
                     id: snapshot.docs[i].id,
                     showEdit: false
                 })
@@ -157,6 +161,10 @@ class AdminActs extends Component {
                                 value={act.editedAct}
                                 onChange={(e) => this.updateActText(e, index)}
                                 placeholder="Warning! Act should not be empty!"/>}
+                            {act.imageUrl !== "" && <img
+                                className="act-image-large"
+                                src={act.imageUrl}
+                                alt="Good deed accompanying photo."/>}
                         </div>
                     )
                 })}

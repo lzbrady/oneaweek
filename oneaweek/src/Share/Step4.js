@@ -7,7 +7,8 @@ class Step1 extends Component {
             hasImage: false,
             thumbnailSrc: "",
             firstName: "",
-            deed: ""
+            deed: "",
+            imageError: ""
         };
 
         this.selectFile = this
@@ -16,12 +17,21 @@ class Step1 extends Component {
     }
 
     selectFile(event) {
-        if (event.target.files[0].type.includes("image")) {
-            var reader = new FileReader();
-            reader.onload = e => {
-                this.setState({hasImage: true, thumbnailSrc: e.target.result});
-            };
-            reader.readAsDataURL(event.target.files[0]);
+        if (event.target.files[0] && event.target.files[0].type.includes("image")) {
+            const file = this.refs.fileUploader.files[0];
+
+            if (!file.type.includes("png") && !file.type.includes("PNG") 
+                && !file.type.includes("JPEG") && !file.type.includes("jpeg") 
+                && !file.type.includes("JPG") && !file.type.includes("jpg")) {
+                this.setState({imageError: "Image must be a PNG or JPG"});
+            } else {
+                this.setState({imageError: ""});
+                var reader = new FileReader();
+                reader.onload = e => {
+                    this.setState({hasImage: true, thumbnailSrc: e.target.result, imageSrc: file});
+                };
+                reader.readAsDataURL(file);
+            }
         }
     }
 
@@ -42,7 +52,8 @@ class Step1 extends Component {
                     placeholder="What was your good deed?"
                     onChange={(e) => this.setState({deed: e.target.value})}/>
                 <div id="form-image-container">
-                    {this.state.hasImage && (<img src={this.state.thumbnailSrc} alt="Preview" id="form-image"/>)}
+                    {this.state.hasImage && <img src={this.state.thumbnailSrc} alt="Preview" id="form-image"/>}
+                    {this.state.imageError !== "" && <p className="error">{this.state.imageError}</p>}
                     <div
                         onClick={() => document.getElementById("add-image-btn").click()}
                         id="add-image-div">
@@ -51,16 +62,22 @@ class Step1 extends Component {
                     <div
                         onClick={() => {
                         this.setState({hasImage: false, thumbnailSrc: ""});
-                        this.props.removeImage();
+                        this
+                            .props
+                            .removeImage();
                     }}
                         id="remove-image-div">
                         Remove Image
                     </div>
-                    <input id="add-image-btn" type="file" onChange={this.selectFile}/>
+                    <input
+                        id="add-image-btn"
+                        type="file"
+                        onChange={this.selectFile}
+                        ref="fileUploader"/>
                 </div>
                 <button
                     id="submit-form-btn"
-                    onClick={() => this.props.submit(this.state.firstName, this.state.deed)}>
+                    onClick={() => this.props.submit(this.state.firstName, this.state.deed, this.state.imageSrc)}>
                     SUBMIT
                 </button>
             </div>
