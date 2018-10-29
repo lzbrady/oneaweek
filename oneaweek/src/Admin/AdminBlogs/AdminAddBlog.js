@@ -112,7 +112,7 @@ class AdminAddBlog extends Component {
                 <img
                     className="blog-post-confirmation-image"
                     src={success}
-                    alt="Error uploading blog"/>
+                    alt="Blog uploaded successfully!"/>
                 <p className="blog-post-confirmation-text">Blog posted successfully!</p>
             </div>}
             {this.state.uploadError && <div className="blog-post-confirmation-container">

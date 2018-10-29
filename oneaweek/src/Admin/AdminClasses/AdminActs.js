@@ -119,9 +119,6 @@ class AdminActs extends Component {
     }
 
     updateActText(event, index) {
-        // console.log("Event Target: " + event.target.value); console.log("Act: ",
-        // act); act.act = event.target.value this.state.acts[0].act = "cr";
-
         let acts = this.state.acts;
         if (acts.length > index) {
             acts[index].editedAct = event.target.value;
@@ -164,7 +161,7 @@ class AdminActs extends Component {
                             {act.imageUrl !== "" && <img
                                 className="act-image-large"
                                 src={act.imageUrl}
-                                alt="Good deed accompanying photo."/>}
+                                alt="Shared good deed"/>}
                         </div>
                     )
                 })}

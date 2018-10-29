@@ -20,6 +20,9 @@ class Schools extends Component {
         this.getSchools = this
             .getSchools
             .bind(this);
+        this.moveBack = this
+            .moveBack
+            .bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +52,10 @@ class Schools extends Component {
         });
     }
 
+    moveBack() {
+        this.setState({showClasses: false});
+    }
+
     render() {
         return <div>
             {!this.state.showClasses && <h1 className="acts-header">Schools</h1>}
@@ -67,6 +74,7 @@ class Schools extends Component {
                     )
                 })}
             {this.state.showClasses && <Classes
+                moveBack={this.moveBack}
                 schoolId={this.state.schoolId}
                 schoolName={this.state.schoolName}
                 state={this.state.state}/>}

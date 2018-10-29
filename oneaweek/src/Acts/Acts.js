@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {confirmAlert} from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 import {getActs} from "../server/server";
@@ -46,9 +45,6 @@ class Acts extends Component {
                 })
             }
 
-            acts.forEach(act => {
-                console.log("Act:", act);
-            });
             this.setState({acts: acts});
         });
     }
@@ -57,6 +53,7 @@ class Acts extends Component {
         return <div>
             <h1 className="acts-header">{this.props.teacherName}
                 - Acts</h1>
+            <p onClick={this.props.moveBack} className="back-btn">&lt; Back to Classes</p>
             {this
                 .state
                 .acts
@@ -65,7 +62,10 @@ class Acts extends Component {
                         <div key={index} className="list-object act-item">
                             <h3 className="act-name">{act.name}</h3>
                             <p className="act-act">{act.act}</p>
-                            {act.imageUrl !== "" && <img className="act-image-large" src={act.imageUrl} alt="Good deed accompanying photo."/>}
+                            {act.imageUrl !== "" && <img
+                                className="act-image-large"
+                                src={act.imageUrl}
+                                alt="Shared good deed"/>}
                         </div>
                     )
                 })}

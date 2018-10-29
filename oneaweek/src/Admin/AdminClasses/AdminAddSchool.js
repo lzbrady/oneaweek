@@ -34,7 +34,7 @@ class AdminAddSchool extends Component {
                     .addSchool(docRef.id, this.state.schoolName, this.state.state);
                 this.setState({success: true});
             }).catch(error => {
-                console.log("Error:", error);
+                console.error("Error:", error);
                 this.setState({error: "Something went wrong. Try again later or contact support at lzbrady496@gmail.com"});
             });
         }

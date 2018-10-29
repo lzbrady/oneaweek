@@ -1,52 +1,93 @@
 #body-left-wrapper {
-    vertical-align: top;
-    display: inline-block;
-    width: 49%;
-    min-width: 300px;
-    box-sizing: border-box;
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
 #body-right-wrapper {
-    vertical-align: top;
-    display: inline-block;
-    width: 49%;
-    min-width: 300px;
-    box-sizing: border-box;
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
 #spotlight-title {
-    margin-bottom: 0px;
-    color: #0a246e;
+  margin-bottom: 0;
+  color: #0a246e;
 }
 
 .blog-post-preview-wrapper-home {
-    width: 80%;
-    margin: 0px auto;
-    padding: 25px 5px;
-    background-color: rgba(206, 206, 206, 0.48);
-    box-sizing: border-box;
-    overflow: hidden;
-    text-align: center !important;
+  width: 80%;
+  margin: 0 auto;
+  padding: 25px 5px;
+  background-color: white;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center !important;
 }
 
 .blog-post-preview-wrapper-home:hover {
-    cursor: pointer;
-    background-color: rgba(206, 206, 206, 0.6);
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
 }
 
 .blog-post-preview-wrapper-home a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .blog-post-preview-title-home {
-    font-size: 28px;
-    font-weight: bold;
-    color: black;
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
 }
 
 .blog-post-preview-preview-home {
-    color: #6e6e6e;
-    font-weight: bold;
-    margin-top: 0px;
-    margin-left: 10px;
+  color: #6e6e6e;
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.home-page-body-text {
+  font-size: 18px;
+  padding: 5px;
+  color: #040e20;
+}
+
+.home-page-image {
+  width: 38%;
+  display: inline;
+  min-width: 200px;
+}
+
+.home-page-body-link {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.home-list {
+  padding: 5px;
+}
+
+.home-list-item {
+  margin: 0px auto 5px;
+  list-style-type: none;
+  font-size: 24px;
+}
+
+.home-list-item:before {
+  content: "\2605";
+  margin-right: 6px;
+}
+
+@media screen and (max-width: 750px) {
+  body .blog-post-preview-wrapper-home {
+    display: block;
+    width: 90%;
+    max-height: 200px;
+    margin-bottom: 30px;
+  }
 }

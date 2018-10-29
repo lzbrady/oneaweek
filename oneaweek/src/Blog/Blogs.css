@@ -63,4 +63,14 @@
   box-sizing: border-box;
   margin: 20px auto;
   background-color: white;
+  text-align: initial;
+  padding: 20px;
+}
+
+.blog-title {
+  margin-top: 48px;
+  background-color: #0a246e;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
 }

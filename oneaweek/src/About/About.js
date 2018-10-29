@@ -1,7 +1,14 @@
 import React, {Component} from "react";
 import banner from "../Images/sponsors_banner.jpg";
+import handsOnGlobe from "../Images/hands_on_globe.jpg";
+import podcast from "../Images/podcast_art.jpg";
 
 import "./About.css";
+
+var smallImageStyle = {
+    width: '20%',
+    maxWidth: '200px'
+  };
 
 class About extends Component {
     render() {
@@ -13,8 +20,9 @@ class About extends Component {
                     communities and in the grand scheme of things, our society. In today’s fast
                     paced stressful world, it is amazing what one door held, one dollar, or one
                     smile can do to a person’s mood or day.
-                    <br/><br/>
-                    Seeing the need for a
+                </p>
+                <img className="home-page-image" src={handsOnGlobe} alt="Hands on globe"/>
+                <p className="home-page-body-text act-body">Seeing the need for a
                     <span className="hightlight-text">“selflessness resurrection”</span>, we
                     individually adopted a 1 a week challenge, where each week we do one nice thing
                     for somebody in our lives or a stranger, and would report back to each other for
@@ -22,44 +30,47 @@ class About extends Component {
                     donate money to a cause that we personally connected with.
                 </p>
 
-                <p className="home-page-body-text act-body">Boomer and Derek have enjoyed the fruits of
-                    their actions, and are here today to challenge “YOU” to join us on our 1 a week
-                    pledge/challenge. Follow us on
-                    <a
-                        className="home-page-body-link"
-                        href="https://www.facebook.com/1aWeekChallenge/">
-                        Facebook
-                    </a>
-                    and
-                    <a className="home-page-body-link" href="https://www.instagram.com/_1aweek/">
-                        Instagram
-                    </a>
-                    (@_1aweek) to see how you can make a difference.
-                </p>
+                <div className="home-page-text-image-container">
+                    <img className="home-page-image" src={podcast} alt="Podcast cover art" style={smallImageStyle}/>
+                    <p className="home-page-body-text act-body">Boomer and Derek have enjoyed the
+                        fruits of their actions, and are here today to challenge “YOU” to join us on our
+                        1 a week pledge/challenge. Follow us on
+                        <a
+                            className="home-page-body-link"
+                            href="https://www.facebook.com/1aWeekChallenge/">
+                            Facebook
+                        </a>
+                        and
+                        <a className="home-page-body-link" href="https://www.instagram.com/_1aweek/">
+                            Instagram
+                        </a>
+                        (@_1aweek) to see how you can make a difference.
+                    </p>
+                </div>
 
                 <h1 className="home-page-body-heading headline act-header">Ideas</h1>
                 <p className="home-page-body-text act-body">
                     We have even included a list of ideas to start you off! Please share photos of
                     your challenges or add comments to share more ideas with the community!
                 </p>
-                <ul>
-                    <li>Buy a gift for someone for no occasion
+                <ul className="home-list">
+                    <li className="home-list-item">Buy a gift for someone for no occasion
                     </li>
-                    <li>Buy a stranger a meal
+                    <li className="home-list-item">Buy a stranger a meal
                     </li>
-                    <li>Host a dinner and do everything yourself
+                    <li className="home-list-item">Host a dinner and do everything yourself
                     </li>
-                    <li>Pay for the car behind you at a drive thru
+                    <li className="home-list-item">Pay for the car behind you at a drive thru
                     </li>
-                    <li>Pick up trash at a park</li>
-                    <li>Give out flowers to strangers
+                    <li className="home-list-item">Pick up trash at a park</li>
+                    <li className="home-list-item">Give out flowers to strangers
                     </li>
-                    <li>Hand out waters on a warm day
+                    <li className="home-list-item">Hand out waters on a warm day
                     </li>
-                    <li>Volunteer
+                    <li className="home-list-item">Volunteer
                     </li>
-                    <li>Leave an over the top tip</li>
-                    <li>Donate old clothes or toys</li>
+                    <li className="home-list-item">Leave an over the top tip</li>
+                    <li className="home-list-item">Donate old clothes or toys</li>
                 </ul>
             </div>
 

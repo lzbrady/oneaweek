@@ -38,7 +38,7 @@ class BlogDetailPage extends Component {
 
     render() {
         return <div>
-            <h1 className="headline">{this.state.blogTitle}</h1>
+            <h1 className="blog-title">{this.state.blogTitle}</h1>
             <div
             className="blog-content"
                 dangerouslySetInnerHTML={{

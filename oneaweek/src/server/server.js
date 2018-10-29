@@ -122,7 +122,3 @@ export function getFullBlog(blogName) {
 function getRandomNumber() {
   return Math.floor(Math.random() * 100000000);
 }
-
-export function sendMessage(name, email, school, message) {
-
-}

@@ -42,33 +42,35 @@ class SpotlightActs extends Component {
                 .classList
                 .add("refreshing");
             getSpotlightAct().then(snapshot => {
-                document
-                    .getElementById("spotlight-container")
-                    .classList
-                    .remove("refreshing");
-                if (snapshot.docs[0]) {
-                    this.setState({
-                        act: {
-                            name: snapshot
-                                .docs[0]
-                                .data()
-                                .name,
-                            act: snapshot
-                                .docs[0]
-                                .data()
-                                .act,
-                            state: snapshot
-                                .docs[0]
-                                .data()
-                                .state === "guestState"
-                                ? "Guest"
-                                : snapshot
+                if (document.getElementById("spotlight-container")) {
+                    document
+                        .getElementById("spotlight-container")
+                        .classList
+                        .remove("refreshing");
+                    if (snapshot.docs[0]) {
+                        this.setState({
+                            act: {
+                                name: snapshot
                                     .docs[0]
                                     .data()
-                                    .state
-                        },
-                        shouldFetchNew: true
-                    });
+                                    .name,
+                                act: snapshot
+                                    .docs[0]
+                                    .data()
+                                    .act,
+                                state: snapshot
+                                    .docs[0]
+                                    .data()
+                                    .state === "guestState"
+                                    ? "Guest"
+                                    : snapshot
+                                        .docs[0]
+                                        .data()
+                                        .state
+                            },
+                            shouldFetchNew: true
+                        });
+                    }
                 }
             });
         }

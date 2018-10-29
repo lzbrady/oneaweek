@@ -12,10 +12,16 @@ class Footer extends Component {
         return (
             <div id="footer-wrapper">
                 <div id="footer-social-media-wrapper">
-                    <a target="_blank" href="https://www.instagram.com/_1aweek/">
+                    <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.instagram.com/_1aweek/">
                         <img className="footer-insta" src={insta} alt="Instagram"/>
                     </a>
-                    <a target="_blank" href="https://www.facebook.com/1aWeekChallenge">
+                    <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.facebook.com/1aWeekChallenge">
                         <img className="footer-facebook" src={fb} alt="Facebook"/>
                     </a>
                 </div>
@@ -46,6 +52,9 @@ class Footer extends Component {
                                     <p className="footer-list-header">Get Involved</p>
                                     <nav className="footer-list-item">
                                         <Link to="/share">Share</Link>
+                                    </nav>
+                                    <nav className="footer-list-item">
+                                        <Link to="/contact">Contact</Link>
                                     </nav>
                                 </div>
                             </div>

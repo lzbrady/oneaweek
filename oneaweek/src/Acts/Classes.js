@@ -22,6 +22,9 @@ class Classes extends Component {
         this.loadClasses = this
             .loadClasses
             .bind(this);
+        this.moveBack = this
+            .moveBack
+            .bind(this);
     }
 
     componentDidMount() {
@@ -44,7 +47,6 @@ class Classes extends Component {
                         })
                 });
 
-                console.log("Length: " + snapshot.size);
                 if (snapshot.size === 1 && snapshot.docs[0].id === "guestClass") {
                     this.setState({classId: snapshot.docs[0].id, showActs: true, classTeacher: "No School Affiliation"});
                 } else {}
@@ -52,11 +54,20 @@ class Classes extends Component {
         });
     }
 
+    moveBack() {
+        if (this.state.showActs) {
+            this.setState({showActs: false});
+        } else {
+            this.props.moveBack();
+        }
+    }
+
     render() {
         return (
             <div>
                 {!this.state.showActs && <h1 className="acts-header">{this.props.schoolName}
                     ({this.props.state})</h1>}
+                {!this.state.showActs && <p onClick={this.moveBack} className="back-btn">&lt; Back to Schools</p>}
                 {!this.state.showActs && this
                     .state
                     .classes
@@ -67,7 +78,7 @@ class Classes extends Component {
                             onClick={() => this.setState({showActs: true, classId: clazz.id, classTeacher: clazz.teacher, showClasses: false})}>{clazz.teacher}
                         </div>
                     })}
-                {this.state.showActs && <Acts classId={this.state.classId} teacherName={this.state.classTeacher}/>}
+                {this.state.showActs && <Acts moveBack={this.moveBack} classId={this.state.classId} teacherName={this.state.classTeacher}/>}
             </div>
         )
     }

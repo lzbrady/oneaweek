@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-
-import {sendMessage} from "../server/server";
+import axios from 'axios';
 
 import "./Contact.css";
 
@@ -13,7 +12,8 @@ class Contact extends Component {
             name: "",
             school: "",
             message: "",
-            error: ""
+            error: "",
+            success: false
         };
 
         this.setFormValue = this
@@ -33,15 +33,36 @@ class Contact extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state.name === "") {
-            this.setState({error: "Name required"});
-        } else if (this.state.message === "") {
-            this.setState({error: "Message required"});
-        } else if (this.state.email !== "" && !(this.state.email.includes("@") && this.state.email.includes("."))) {
-            this.setState({error: "Invalid email address"})
-        } else {
-            this.setState({error: ""})
-            sendMessage(this.state.name, this.state.email, this.state.school, this.state.message);
+
+        if (!this.state.success) {
+            if (this.state.name === "") {
+                this.setState({error: "Name required"});
+            } else if (this.state.message === "") {
+                this.setState({error: "Message required"});
+            } else if (this.state.email !== "" && !(this.state.email.includes("@") && this.state.email.includes("."))) {
+                this.setState({error: "Invalid email address"})
+            } else {
+                this.setState({error: ""})
+
+                const _url = process.env.NODE_ENV === 'production'
+                    ? "/api/"
+                    : "http://localhost:4200/api/"
+
+                // There is an image attached, send to the CLOUD
+                var name = this.state.name;
+                var email = this.state.email;
+                var school = this.state.school;
+                var message = this.state.message;
+
+                axios
+                    .post(`${_url}contact`, {name, email, school, message})
+                    .then((res) => {
+                        this.setState({success: true});
+                    })
+                    .catch((err) => {
+                        this.setState({error: "Sorry! Something went wrong. Please try again later.", step: 4, loading: false});
+                    });
+            }
         }
     }
 
@@ -55,11 +76,13 @@ class Contact extends Component {
                         type="text"
                         name="name"
                         placeholder="Name"
+                        readOnly={this.state.success}
                         value={this.state.name}
                         onChange={this.setFormValue}/><br/>
                     <input
                         className="contact-input"
                         type="text"
+                        readOnly={this.state.success}
                         name="email"
                         placeholder="Email (optional)"
                         value={this.state.email}
@@ -67,6 +90,7 @@ class Contact extends Component {
                     <input
                         className="contact-input"
                         type="text"
+                        readOnly={this.state.success}
                         name="school"
                         placeholder="School (optional)"
                         value={this.state.school}
@@ -74,11 +98,18 @@ class Contact extends Component {
                     <textarea
                         className="contact-textarea"
                         type="text"
+                        readOnly={this.state.success}
                         name="message"
                         placeholder="Message"
                         value={this.state.message}
                         onChange={this.setFormValue}/> {this.state.error !== "" && <p className="error">{this.state.error}</p>}
-                    <button type="submit" className="contact-submit-btn">SEND MESSAGE</button>
+                    <button
+                        type="submit"
+                        className={this.state.success
+                        ? "contact-submit-btn-success"
+                        : "contact-submit-btn"}>{this.state.success
+                            ? "Message Sent!"
+                            : "SEND MESSAGE"}</button>
                 </form>
             </div>
         )

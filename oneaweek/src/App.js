@@ -5,9 +5,7 @@ import "./App.css";
 
 import HomePage from "./Home/HomePage";
 import Contact from "./Contact/Contact";
-import Acts from "./Acts/Acts";
 import Schools from "./Acts/Schools";
-import Classes from "./Acts/Classes";
 import BlogPage from "./Blog/BlogPage";
 import BlogDetailPage from "./Blog/BlogDetailPage";
 import Podcast from "./Podcast/Podcast";

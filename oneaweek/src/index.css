@@ -49,6 +49,8 @@ body {
 
 .hightlight-text {
   font-size: 20px;
+  margin-left: 4px;
+  margin-right: 4px;
   background: linear-gradient(to right, #b6c9ff, #b6fff2, #00ff8e);
   color: #0a246e;
 }
@@ -76,6 +78,10 @@ body {
   margin: 20px;
 }
 
+.label {
+  margin-right: 4px;
+}
+
 .loading-circle {
   width: 75px;
   height: 75px;
@@ -91,5 +97,12 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  body .delete-icon {
+    position: relative;
   }
 }

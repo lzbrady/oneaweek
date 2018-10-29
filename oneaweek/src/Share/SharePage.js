@@ -6,8 +6,6 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-import StepConfirm from "./StepConfirm";
-import Contact from "../Contact/Contact";
 import "./SharePage.css";
 
 import loading from "../Images/loading_circle.png";
@@ -70,7 +68,9 @@ class SharePage extends Component {
                 class: {
                     id : "na",
                     teacher : ""
-                }
+                },
+                name: "",
+                act: ""
             });
         }
     }
@@ -157,13 +157,14 @@ class SharePage extends Component {
         this.setState({step: currentStep});
     }
 
-    submitAct(firstName, act, imageSrc) {
+    submitAct(firstName, act, fileSrc) {
         if (firstName === "" || act === "") {
             this.setState({error: "Fill out all fields before submitting."});
         } else {
-            this.setState({error: "", step: 5, loading: true});
+            this.setState({error: "", step: 5, loading: true, name: firstName, act: act});
 
-            if (imageSrc === undefined || imageSrc === "") {
+            console.log("File Src: ", fileSrc);
+            if (fileSrc === undefined || fileSrc === {}) {
                 var rtn = shareAct(firstName, act, "", this.state.class.id, this.state.state).then((docRef) => {})
                     .catch(function (error) {
                         console.error("Error adding document: ", error);
@@ -174,39 +175,47 @@ class SharePage extends Component {
                     this.setState({step: 5, loading: false});
                 }
             } else {
-                // There is an image attached, send to the CLOUD
                 const _url = process.env.NODE_ENV === 'production'
                     ? "/api/act/"
                     : "http://localhost:4200/api/act/"
                 const formdata = new FormData();
-                formdata.append('file', imageSrc);
-                formdata.append('originalname', imageSrc.name);
+                formdata.append('file', fileSrc);
+                formdata.append('originalname', fileSrc.name);
 
-                axios
-                    .post(`${_url}image`, formdata, {
-                    headers: {
-                        'accept': 'application/json',
-                        'Accept-Language': 'en-US,en;q=0.8',
-                        'Content-Type': `multipart/form-data; boundary=${formdata._boundary}`
-                    }
-                })
-                    .then((res) => {
-                        console.log("Res: ", res);
-                        if (res.data.url) {
-                            var rtn = shareAct(firstName, act, res.data.url, this.state.class.id, this.state.state).then((docRef) => {})
-                                .catch(function (error) {
-                                    console.error("Error adding document: ", error);
-                                });
-                            if (rtn.err) {
-                                this.setState({error: rtn.err, step: 4, loading: false});
-                            } else {
-                                this.setState({step: 5, loading: false});
-                            }
+                if (fileSrc.type.includes("png") || fileSrc.type.includes("PNG") || fileSrc.type.includes("JPEG") || fileSrc.type.includes("jpeg") || fileSrc.type.includes("JPG") || fileSrc.type.includes("jpg")) {
+                    // There is an image attached, send to the CLOUD
+                    axios
+                        .post(`${_url}image`, formdata, {
+                        headers: {
+                            'accept': 'application/json',
+                            'Accept-Language': 'en-US,en;q=0.8',
+                            'Content-Type': `multipart/form-data; boundary=${formdata._boundary}`
                         }
                     })
-                    .catch((err) => {
-                        this.setState({error: "Sorry! Something went wrong. Make sure your image is a PNG or JPG extension.", step: 4, loading: false});
+                        .then((res) => {
+                            if (res.data.url) {
+                                var rtn = shareAct(firstName, act, res.data.url, this.state.class.id, this.state.state).then((docRef) => {})
+                                    .catch(function (error) {
+                                        console.error("Error adding document: ", error);
+                                    });
+                                if (rtn.err) {
+                                    this.setState({error: rtn.err, step: 4, loading: false});
+                                } else {
+                                    this.setState({step: 5, loading: false});
+                                }
+                            }
+                        })
+                        .catch((err) => {
+                            this.setState({error: "Sorry! Something went wrong. Make sure your image is a PNG or JPG extension.", step: 4, loading: false});
+                        });
+                } else {
+                    this.setState({
+                        error: "Unsupported file format. Only images (.jpg and .png) are suppoorted at the momen" +
+                                "t.",
+                        step: 4,
+                        loading: false
                     });
+                }
             }
         }
     }
@@ -288,7 +297,29 @@ class SharePage extends Component {
                     </nav>
                 </HashRouter>
 
-                {(this.state.step === 5 && !this.state.loading) && <h2>Act shared under<br/>{this.state.class.teacher}</h2>}
+                {(this.state.step === 5 && !this.state.loading) && <div>
+                    <h2>Act shared!</h2>
+                    <p>
+                        <strong className="label">State:</strong>
+                        {this.state.state}
+                    </p>
+                    <p>
+                        <strong className="label">School:</strong>
+                        {this.state.school.name}
+                    </p>
+                    <p>
+                        <strong className="label">Teacher:</strong>
+                        {this.state.class.teacher}
+                    </p>
+                    <p>
+                        <strong className="label">Name:</strong>
+                        {this.state.name}
+                    </p>
+                    <p>
+                        <strong className="label">Act:</strong>
+                        {this.state.act}
+                    </p>
+                </div>}
                 {this.state.loading && <img className="loading-circle" src={loading} alt="Uploading..."/>}
             </div>
         );

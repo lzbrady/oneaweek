@@ -8,21 +8,27 @@
   position: relative;
 }
 
-.act-item:nth-child(even), .list-item:nth-child(even), .list-object:nth-child(even) .list-item {
+.act-item:nth-child(even),
+.list-item:nth-child(even),
+.list-object:nth-child(even) .list-item {
   background-color: #ffbe88;
 }
 
-.act-item:nth-child(odd), .list-item:nth-child(odd), .list-object:nth-child(odd) .list-item {
+.act-item:nth-child(odd),
+.list-item:nth-child(odd),
+.list-object:nth-child(odd) .list-item {
   background-color: #f1b6c2;
 }
 
-.list-item:nth-child(even):hover, .list-object:nth-child(even) .list-item:hover {
+.list-item:nth-child(even):hover,
+.list-object:nth-child(even) .list-item:hover {
   cursor: pointer;
   font-weight: bold;
-  background-color: #ffbe88;
+  background-color: #ffca9f;
 }
 
-.list-item:nth-child(odd):hover, .list-object:nth-child(odd) .list-item:hover {
+.list-item:nth-child(odd):hover,
+.list-object:nth-child(odd) .list-item:hover {
   cursor: pointer;
   font-weight: bold;
   background-color: #f7c4ce;
@@ -36,7 +42,8 @@
   padding: 16px;
 }
 
-.act-item, .list-item {
+.act-item,
+.list-item {
   padding: 6px;
   font-size: 18px;
   box-sizing: border-box;
@@ -68,4 +75,22 @@
 
 .act-act {
   margin: 0px;
+}
+
+.back-btn {
+  margin: 5px auto 10px;
+  width: 165px;
+  color: white;
+  background-color: #0a246e;
+}
+
+.back-btn:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+@media screen and (max-width: 650px) {
+  body .list-object {
+    width: 90%;
+  }
 }

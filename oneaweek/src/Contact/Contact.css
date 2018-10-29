@@ -41,7 +41,8 @@
   min-height: 100px;
 }
 
-.contact-submit-btn {
+.contact-submit-btn,
+.contact-submit-btn-success {
   width: 96%;
   font-size: 20px;
   padding: 10px 5px;
@@ -54,4 +55,12 @@
 .contact-submit-btn:hover {
   cursor: pointer;
   background-color: #17368c;
+}
+
+.contact-submit-btn-success {
+  background-color: #2c9a46 !important;
+}
+
+.contact-submit-btn-success:focus {
+  outline: none;
 }
