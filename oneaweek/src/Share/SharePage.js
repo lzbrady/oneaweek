@@ -163,7 +163,6 @@ class SharePage extends Component {
         } else {
             this.setState({error: "", step: 5, loading: true, name: firstName, act: act});
 
-            console.log("File Src: ", fileSrc);
             if (fileSrc === undefined || fileSrc === {}) {
                 var rtn = shareAct(firstName, act, "", this.state.class.id, this.state.state).then((docRef) => {})
                     .catch(function (error) {
@@ -175,9 +174,8 @@ class SharePage extends Component {
                     this.setState({step: 5, loading: false});
                 }
             } else {
-                const _url = process.env.NODE_ENV === 'production'
-                    ? "/api/act/"
-                    : "http://localhost:4200/api/act/"
+                const _url = "142.93.176.115";
+
                 const formdata = new FormData();
                 formdata.append('file', fileSrc);
                 formdata.append('originalname', fileSrc.name);

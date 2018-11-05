@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Route, HashRouter, Redirect} from "react-router-dom";
+import {auth} from "./server/fire";
 
 import "./App.css";
 
@@ -14,18 +15,45 @@ import Footer from "./Footer/Footer";
 import SharePage from "./Share/SharePage";
 import About from "./About/About";
 import Admin from "./Admin/Admin";
-import Login from "./Admin/Login";
+import SignIn from "./Admin/SignIn";
 import AdminClasses from "./Admin/AdminClasses/AdminClasses";
 import AdminBlogs from "./Admin/AdminBlogs/AdminBlogs";
 import AdminAddBlog from "./Admin/AdminBlogs/AdminAddBlog";
 import AdminMenu from "./Admin/AdminMenu";
-import {fakeAuth} from "./Admin/Login";
 
 class App extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            authUser: {}
+        }
+    }
+
+    componentDidMount() {
+        auth.onAuthStateChanged(authUser => {
+            authUser
+                ? this.setState({authUser})
+                : this.setState({authUser: null});
+        });
+    }
+
     render() {
+        const PrivateRoute = ({
+            component: Component,
+            ...rest
+        }) => (
+            <Route
+                {...rest}
+                render={(props) => (this.state.authUser
+                ? <Component {...props}/>
+                : <Redirect to='/login'/>)}/>
+        )
+
         return (
             <div>
-                <Menu/> {fakeAuth.isAuthenticated && <AdminMenu/>}
+                <Menu/> {this.state.authUser && <AdminMenu authUser={this.state.authUser}/>}
                 <HashRouter>
                     <div className="App pad-bottom">
                         <div className="content">
@@ -35,14 +63,34 @@ class App extends Component {
                             <Route exact path="/blog" component={BlogPage}/>
                             <Route exact path="/blog/:id" component={BlogDetailPage}/>
                             <Route exact path="/contact" component={Contact}/>
-                            <Route exact path="/login" component={Login}/>
                             <Route exact path="/podcast" component={Podcast}/>
                             <Route exact path="/share" component={SharePage}/>
-                            <PrivateRoute exact path="/admin" component={Admin}/>
-                            <PrivateRoute exact path="/admin/blogs" component={AdminBlogs}/>
-                            <PrivateRoute exact path="/admin/blogs/add" component={AdminAddBlog}/>
-                            <PrivateRoute exact path="/admin/blogs/edit/:id" component={AdminAddBlog}/>
-                            <PrivateRoute exact path="/admin/classes" component={AdminClasses}/>
+                            <Route exact path="/login" component={SignIn}/>
+                            <PrivateRoute
+                                authUser={this.state.authUser}
+                                exact
+                                path="/admin"
+                                component={Admin}/>
+                            <PrivateRoute
+                                auth={this.state.authUser}
+                                exact
+                                path="/admin/blogs"
+                                component={AdminBlogs}/>
+                            <PrivateRoute
+                                auth={this.state.authUser}
+                                exact
+                                path="/admin/blogs/add"
+                                component={AdminAddBlog}/>
+                            <PrivateRoute
+                                auth={this.state.authUser}
+                                exact
+                                path="/admin/blogs/edit/:id"
+                                component={AdminAddBlog}/>
+                            <PrivateRoute
+                                auth={this.state.authUser}
+                                exact
+                                path="/admin/classes"
+                                component={AdminClasses}/>
                         </div>
                     </div>
                 </HashRouter>
@@ -51,16 +99,5 @@ class App extends Component {
         )
     }
 }
-
-const PrivateRoute = ({
-    component: Component,
-    ...rest
-}) => (
-    <Route
-        {...rest}
-        render={(props) => (fakeAuth.isAuthenticated === true
-        ? <Component {...props}/>
-        : <Redirect to='/login'/>)}/>
-)
 
 export default App;

@@ -7,6 +7,7 @@ import "./Menu.css";
 class Menu extends Component {
     constructor() {
         super();
+
         this.state = {
             menuOpen: false
         }
@@ -27,7 +28,10 @@ class Menu extends Component {
                         className="mobile w3-xxxlarge mobile-close fa fa-close"
                         onClick={() => this.setState({menuOpen: false})}>CLOSE</i>}
 
-                    <div className={this.state.menuOpen ? "menu menu-open" : "menu"}>
+                    <div
+                        className={this.state.menuOpen
+                        ? "menu menu-open"
+                        : "menu"}>
                         <nav className="menu-item">
                             <Link to="/">Home</Link>
                         </nav>

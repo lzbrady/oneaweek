@@ -4,6 +4,8 @@
   width: 49%;
   min-width: 300px;
   box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.74);
+  border-radius: 13px;
 }
 
 #body-right-wrapper {
@@ -23,7 +25,7 @@
   width: 80%;
   margin: 0 auto;
   padding: 25px 5px;
-  background-color: white;
+  background-color: rgba(206, 206, 206, 0.5);
   box-sizing: border-box;
   overflow: hidden;
   text-align: center !important;
@@ -31,7 +33,7 @@
 
 .blog-post-preview-wrapper-home:hover {
   cursor: pointer;
-  background-color: rgb(240, 240, 240);
+  background-color: rgba(181, 181, 181, 0.5);
 }
 
 .blog-post-preview-wrapper-home a {
@@ -55,6 +57,11 @@
   font-size: 18px;
   padding: 5px;
   color: #040e20;
+  background-color: rgba(255, 255, 255, 0.74);
+  border-radius: 13px;
+  width: 90%;
+  box-sizing: border-box;
+  margin: 30px auto;
 }
 
 .home-page-image {
@@ -66,14 +73,17 @@
 .home-page-body-link {
   margin-left: 4px;
   margin-right: 4px;
+  display: inline-block;
 }
 
 .home-list {
   padding: 5px;
+  color: white;
+  background-color: #0a246e;
 }
 
 .home-list-item {
-  margin: 0px auto 5px;
+  margin: 0px auto 10px;
   list-style-type: none;
   font-size: 24px;
 }

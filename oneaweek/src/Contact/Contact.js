@@ -44,9 +44,7 @@ class Contact extends Component {
             } else {
                 this.setState({error: ""})
 
-                const _url = process.env.NODE_ENV === 'production'
-                    ? "/api/"
-                    : "http://localhost:4200/api/"
+                const _url = "142.93.176.115";
 
                 // There is an image attached, send to the CLOUD
                 var name = this.state.name;

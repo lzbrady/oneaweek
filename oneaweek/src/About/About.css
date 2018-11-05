@@ -1,8 +1,8 @@
 .act-header {
-    font-family: 'Amatic SC', cursive;
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 3px;
+  font-family: "Amatic SC", cursive;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 3px;
 }
 
 .act-body {
@@ -11,32 +11,33 @@
 }
 
 .sponsor-container {
-    margin: 16px;
-    margin-top: 100px;
-    text-align: center;
+  margin: 16px;
+  margin-top: 100px;
+  text-align: center;
 }
 
 .sponsor-container h1 {
-    color: #0a246e;
-    text-align: center;
-    margin: 40px 0px 15px;
+  color: #0a246e;
+  text-align: center;
+  margin: 40px 0px 15px;
 }
 
 .sponsor {
-    width: 50%;
-    min-width: 275px;
-    height: auto;
-    background-color: #0a246e;
-    color: white;
-    text-decoration: none;
-    padding: 15px;
-    font-size: 24px;
-    display: block;
-    margin: 10px auto;
+  width: 50%;
+  min-width: 275px;
+  height: auto;
+  background-color: #0a246e;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  font-size: 24px;
+  display: block;
+  margin: 10px auto;
+  box-sizing: border-box;
 }
 
 .sponsor:hover {
-    background-color: #b6c9ff;
-    color: #0a246e;
-    cursor: pointer;
+  background-color: #b6c9ff;
+  color: #0a246e;
+  cursor: pointer;
 }

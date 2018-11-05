@@ -1,0 +1,29 @@
+.sign-in-input,
+.sign-in-button {
+  border: 2px solid #0a246e;
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  font-size: 18px;
+  width: 100%;
+  max-width: 100%;
+  background: #b6c9ff;
+  box-sizing: border-box;
+}
+
+.sign-in-form .sign-in-button {
+  background: #0a246e;
+  color: white;
+}
+
+.sign-in-button:hover {
+  cursor: pointer;
+  background: #113087;
+}
+
+.sign-in-form {
+  width: 275px;
+  max-width: 275px;
+  margin: 10px auto;
+}
