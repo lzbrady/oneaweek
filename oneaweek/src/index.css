@@ -4,12 +4,16 @@ body {
   font-family: "Nunito", sans-serif;
   /* font-family: 'Comfortaa', cursive; */
   /* font-family: 'Amatic SC', cursive; */
-  background: url("./Images/LightBlueSubtleBackground.png") no-repeat center
-    center fixed;
+  /* background: url("./Images/LightBlueSubtleBackground.png") no-repeat center
+    center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background: linear-gradient(to bottom right, white 0%, #d4d4da  16%);
+  background: -webkit-gradient(linear, left top, right bottom, from(white), color-stop(16%, #d4d4da ));
+  background: -webkit-linear-gradient(top left, white 0%, #d4d4da  16%);
+  background: -o-linear-gradient(top left, white 0%, #d4d4da  16%);
 }
 
 .headline {

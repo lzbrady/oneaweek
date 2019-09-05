@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {HashRouter, Link} from "react-router-dom";
 import {auth} from "../server/fire";
+import history from "../history";
 
 import "./AdminCss/AdminMenu.css";
 
@@ -25,16 +25,18 @@ class AdminMenu extends Component {
     }
 
     render() {
-        return <HashRouter>
+        return (
             <div id="admin-menu">
                 <nav className="admin-menu-item">
-                    <Link to="/admin/classes">Manage Classes</Link>
+                    <a onClick={() => history.push("/admin/classes")}>Manage Classes</a>
                 </nav>
                 <nav className="admin-menu-item">
-                    <Link to="/admin/blogs">Manage Blogs</Link>
+                    <a onClick={() => history.push("/admin/blogs")}>Manage Blogs</a>
+                </nav>
+                <nav className="admin-menu-item">
+                    <a onClick={() => history.push("/admin/count")}>Act Count</a>
                 </nav>
                 {this.props.authUser &&<svg height="25" width="25" onClick={this.signOut} className="signout-icon">
-                <span>Test</span>
                     <line strokeLinecap="round" x1="10%" y1="20%" x2="60%" y2="20%" style={{stroke: "#0a246e", strokeWidth: "10%"}} />
                     <line strokeLinecap="round" x1="60%" y1="20%" x2="60%" y2="30%" style={{stroke: "#0a246e", strokeWidth: "10%"}} />
                     <line strokeLinecap="round" x1="60%" y1="70%" x2="60%" y2="80%" style={{stroke: "#0a246e", strokeWidth: "10%"}} />
@@ -48,7 +50,7 @@ class AdminMenu extends Component {
 
                 <p onClick={this.signOut} className="admin-menu-tooltip">Logout</p>
             </div>
-        </HashRouter>
+        )
     }
 }
 

@@ -20,10 +20,10 @@ class BlogDetailPage extends Component {
             .props
             .location
             .pathname
-            .substring(6);
+            .substring(6) + this.props.location.search;
 
         if (blogTitle !== "") {
-            getFullBlog(blogTitle)
+            getFullBlog(decodeURI(blogTitle))
                 .once("value")
                 .then(snapshot => {
                     this.setState({
@@ -40,7 +40,7 @@ class BlogDetailPage extends Component {
         return <div>
             <h1 className="blog-title">{this.state.blogTitle}</h1>
             <div
-            className="blog-content"
+                className="blog-content"
                 dangerouslySetInnerHTML={{
                 __html: this
                     .state

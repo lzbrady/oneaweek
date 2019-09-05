@@ -11,27 +11,29 @@
 .act-item:nth-child(even),
 .list-item:nth-child(even),
 .list-object:nth-child(even) .list-item {
-  background-color: #ffbe88;
+  background-color: #0a246e;
+  color: white;
 }
 
 .act-item:nth-child(odd),
 .list-item:nth-child(odd),
 .list-object:nth-child(odd) .list-item {
-  background-color: #f1b6c2;
+  background-color: white;
+  color: #0a246e;
 }
 
 .list-item:nth-child(even):hover,
 .list-object:nth-child(even) .list-item:hover {
   cursor: pointer;
   font-weight: bold;
-  background-color: #ffca9f;
+  background-color: rgb(15, 44, 125);
 }
 
 .list-item:nth-child(odd):hover,
 .list-object:nth-child(odd) .list-item:hover {
   cursor: pointer;
   font-weight: bold;
-  background-color: #f7c4ce;
+  background-color: rgb(226, 226, 226);
 }
 
 .list-header {

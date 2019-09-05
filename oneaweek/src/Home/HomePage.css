@@ -21,6 +21,16 @@
   color: #0a246e;
 }
 
+.home-page-container {
+  width: 75%;
+  margin: auto;
+  border: 2px solid #0a246e;
+  min-width: 300px;
+  border-radius: 4px;
+  background-color: rgba(250, 255, 84, 0.5);
+  margin-bottom: 32px;
+}
+
 .blog-post-preview-wrapper-home {
   width: 80%;
   margin: 0 auto;
@@ -74,6 +84,40 @@
   margin-left: 4px;
   margin-right: 4px;
   display: inline-block;
+}
+
+.home-page-social-media-bar {
+  position: relative;
+  height: 30px;
+}
+
+.home-page-social-media-bar a {
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 30px;
+  position: absolute;
+  bottom: 0px;
+  text-decoration: none;
+}
+
+.home-page-facebook {
+  background-color: #4267b2;
+  color: white;
+  left: 0px;
+}
+
+.home-page-facebook:hover, .home-page-instagram:hover {
+  cursor: pointer;
+  width: 90%;
+  z-index: 20;
+  transition: width 200ms linear;
+}
+
+.home-page-instagram {
+  background: #cf3ca1;
+  color: white;
+  right: 0px;
 }
 
 .home-list {

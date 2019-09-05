@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter, Link } from "react-router-dom";
-
+import history from "../history";
 import { getBlogPreviews } from "../server/server";
 
 import "./Blogs.css";
@@ -40,13 +39,12 @@ class BlogPage extends Component {
 
   render() {
     return (
-      <HashRouter>
         <div className="pad-bottom">
           <h1 className="headline">1 a week stories</h1>
           {this.state.blogPosts.map(blog => {
             return (
               <nav className="blog-post-preview-wrapper" key={blog.title}>
-                <Link to={`/blog/${blog.title}`}>
+                <a onClick={() => history.push(`/blog/${blog.title}`)}>
                   <h1 className="blog-post-preview-title">{blog.title}</h1>
                   <p
                     className="blog-post-preview-preview"
@@ -57,12 +55,11 @@ class BlogPage extends Component {
                       )
                     }}
                   />
-                </Link>
+                </a>
               </nav>
             );
           })}
         </div>
-      </HashRouter>
     );
   }
 }

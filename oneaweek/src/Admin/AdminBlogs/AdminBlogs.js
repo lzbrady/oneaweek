@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {HashRouter, Link} from "react-router-dom";
-import {confirmAlert} from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import {confirmAlert} from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import history from "../../history";
 
 import {getBlogPreviews} from "../../server/server";
 import {deleteBlog} from "../../server/admin_server";
@@ -77,12 +77,12 @@ class AdminBlogs extends Component {
     }
 
     render() {
-        return <HashRouter>
+        return (
             <div>
                 <h1>My Blogs</h1>
                 <p className="subtext">NOTE: Blog names must be unique</p>
                 <nav className="admin-menu-item admin-add-btn">
-                    <Link to="/admin/blogs/add">Write New Blog Post</Link>
+                    <a onClick={() => history.push("/admin/blogs/add")}>Write New Blog Post</a>
                 </nav>
                 {this
                     .state
@@ -91,22 +91,22 @@ class AdminBlogs extends Component {
                         return (
                             <nav className="blog-post-admin-wrapper" key={blog.title}>
                                 <h1 className="blog-post-admin-title">{blog.title}</h1>
-                                <Link to={`/blog/${blog.title}`}>
+                                <a onClick={() => history.push(`/blog/${blog.title}`)}>
                                     <p className="blog-post-admin-full-article">See Full Article</p>
-                                </Link>
+                                </a>
                                 <div className="blog-actions-container">
                                     <div
                                         className="admin-act-delete"
                                         onClick={() => this.confirmDelete(blog.title)}>DELETE</div>
-                                    <Link to={"/admin/blogs/edit/" + blog.title}>
+                                    <a onClick={() => history.push("/admin/blogs/edit/" + blog.title)}>
                                         <div className="admin-act-edit" onClick={() => {}}>EDIT</div>
-                                    </Link>
+                                    </a>
                                 </div>
                             </nav>
                         );
                     })}
             </div>
-        </HashRouter>
+        )
     }
 }
 

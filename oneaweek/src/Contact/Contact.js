@@ -44,9 +44,8 @@ class Contact extends Component {
             } else {
                 this.setState({error: ""})
 
-                const _url = "142.93.176.115";
+                const _url = "https://api.1aweekchallenge.com:4200/api/";
 
-                // There is an image attached, send to the CLOUD
                 var name = this.state.name;
                 var email = this.state.email;
                 var school = this.state.school;

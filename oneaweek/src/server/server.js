@@ -59,6 +59,10 @@ function getRandomAct(num, greaterThan) {
     .get();
 }
 
+export function getActCount() {
+  return fire.database().ref("actCount");
+}
+
 // Schools
 export function getSchools(state) {
   return fire

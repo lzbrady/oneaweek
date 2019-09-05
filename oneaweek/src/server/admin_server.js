@@ -80,6 +80,13 @@ export function updateAct(actId, act) {
     .update("act", act);
 }
 
+export function setActCount(count) {
+  fire
+    .database()
+    .ref("actCount")
+    .set(count);
+}
+
 // Blogs
 export function addBlog(blogName, content, preview) {
   if (blogName === "") {

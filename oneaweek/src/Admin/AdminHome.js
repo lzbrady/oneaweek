@@ -1,19 +1,19 @@
 import React, {Component} from "react";
-import {HashRouter, Link} from "react-router-dom";
+import history from "../history";
 
 class AdminHome extends Component {
     render() {
-        return <HashRouter>
+        return (
             <div className="admin-component">
                 <h1 className="admin-title">Admin Portal</h1>
                 <nav className="manage-item">
-                    <Link to="/admin/classes">Manage Classes</Link>
+                    <a onClick={() => history.push("/admin/classes")}>Manage Classes</a>
                 </nav>
                 <nav className="manage-item">
-                    <Link to="/admin/blogs">Manage Blogs</Link>
+                    <a onClick={() => history.push("/admin/blogs")}>Manage Blogs</a>
                 </nav>
             </div>
-        </HashRouter>
+        )
     }
 }
 

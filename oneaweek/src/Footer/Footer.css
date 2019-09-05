@@ -13,6 +13,7 @@
 #footer-wrapper a:hover {
   color: white;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #footer-social-media-wrapper {

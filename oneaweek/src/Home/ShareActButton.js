@@ -1,16 +1,14 @@
 import React, {Component} from "react";
-import {HashRouter, Link} from "react-router-dom";
+import history from '../history';
 
 import "./ShareActButton.css";
 
 class ShareActButton extends Component {
     render() {
         return (
-            <HashRouter>
-                <nav id="share-act-btn">
-                    <Link to="/share">SHARE YOUR ACT</Link>
-                </nav>
-            </HashRouter>
+            <nav id="share-act-btn">
+                <a onClick={() => history.push("/share")}>SHARE YOUR ACT</a>
+            </nav>
         );
     }
 }

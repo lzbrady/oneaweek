@@ -8,7 +8,7 @@ import "./About.css";
 var smallImageStyle = {
     width: '20%',
     maxWidth: '200px'
-  };
+};
 
 class About extends Component {
     render() {
@@ -31,7 +31,11 @@ class About extends Component {
                 </p>
 
                 <div className="home-page-text-image-container">
-                    <img className="home-page-image" src={podcast} alt="Podcast cover art" style={smallImageStyle}/>
+                    <img
+                        className="home-page-image"
+                        src={podcast}
+                        alt="Podcast cover art"
+                        style={smallImageStyle}/>
                     <p className="home-page-body-text act-body">Boomer and Derek have enjoyed the
                         fruits of their actions, and are here today to challenge “YOU” to join us on our
                         1 a week pledge/challenge. Follow us on
@@ -82,74 +86,56 @@ class About extends Component {
                 }}
                     src={banner}
                     alt="Unite Together"/>
-                <h1 className="act-header">Our Supporters</h1>
+
+                <h1>Our 2019 Sponsors</h1>
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sponsor"
-                    href="https://www.facebook.com/groups/677838459089544/">Lost Souls Mental Health Group</a>
+                    href="https://www.pearcards.com">PEAR Cards</a>
 
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sponsor"
-                    href="https://www.facebook.com/domesticabuseproject/">Domestic Abuse Project</a>
+                    href="http://www.thewakeupp.com">The Wake Up</a>
 
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sponsor"
-                    href="https://www.facebook.com/Operationplay/">Let Kids be Kids</a>
-
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sponsor"
-                    href="https://www.facebook.com/savingveteranshomes/">Saving Veteran Homes</a>
-
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sponsor"
-                    href="https://www.facebook.com/givebackyoga/">Give Back Yoga Foundation</a>
-
-                <h1>Our 2018 Sponsors</h1>
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sponsor"
-                    href="https://www.facebook.com/passthepear/">PEAR Cards</a>
-
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sponsor"
-                    href="https://www.facebook.com/allstarhumanperformance/">All-Star Human Performance</a>
-
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sponsor"
-                    href="https://www.facebook.com/lostformat/">Lost Format Apparel
+                    href="https://www.etsy.com/nl/shop/Katreative?fbclid=IwAR1A1nJUw0NiCpxR6v7lFbdCnFb5DZKqkEf3TTm9ae-GTzZCXm2M4WpdK24">Katreative
                 </a>
 
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sponsor"
-                    href="https://www.facebook.com/Katreative/">Katreative</a>
+                    href="https://edgewatchco.com/">Edge Watch Company</a>
 
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sponsor"
-                    href="https://www.facebook.com/EdgeWatchCo/">Edge Watch Company</a>
+                    href="https://globalwakecup.com/">Global Wake Cup</a>
 
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sponsor"
-                    href="https://www.facebook.com/thewakeupp/">The Wake Up</a>
+                    href="https://www.soxytime.com/">Soxy Time</a>
+
+                <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sponsor"
+                    href="https://artbyamy.gallery/">Art by Amy</a>
+
+                <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sponsor"
+                    href="https://www.lovemorethanever.com/">Love More Than Ever</a>
             </div>
         </div>;
     }

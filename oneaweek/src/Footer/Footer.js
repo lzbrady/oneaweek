@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import {HashRouter, Link} from "react-router-dom";
 
 import fb from "../Images/facebook.png";
 import insta from "../Images/instagram.png";
 import logo from "../Images/1_a_week_logo.jpg";
+import history from "../history";
 
 import "./Footer.css";
 
@@ -31,52 +31,46 @@ class Footer extends Component {
                 </div>
                 <div className="footer-col-one">
                     <div className="footer-col-three">
-                        <HashRouter>
-                            <div>
-                                <div className="footer-list">
-                                    <p className="footer-list-header">Our Content</p>
-                                    <nav className="footer-list-item">
-                                        <Link to="/blog">Blog</Link>
-                                    </nav>
-                                    <nav className="footer-list-item">
-                                        <Link to="/podcast">Podcast</Link>
-                                    </nav>
-                                </div>
+                        <div>
+                            <div className="footer-list">
+                                <p className="footer-list-header">Our Content</p>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/blog")}>Blog</a>
+                                </nav>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/podcast")}>Podcast</a>
+                                </nav>
                             </div>
-                        </HashRouter>
+                        </div>
                     </div>
                     <div className="footer-col-three">
-                        <HashRouter>
-                            <div>
-                                <div className="footer-list">
-                                    <p className="footer-list-header">Get Involved</p>
-                                    <nav className="footer-list-item">
-                                        <Link to="/share">Share</Link>
-                                    </nav>
-                                    <nav className="footer-list-item">
-                                        <Link to="/contact">Contact</Link>
-                                    </nav>
-                                </div>
+                        <div>
+                            <div className="footer-list">
+                                <p className="footer-list-header">Get Involved</p>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/share")}>Share</a>
+                                </nav>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/contact")}>Contact</a>
+                                </nav>
                             </div>
-                        </HashRouter>
+                        </div>
                     </div>
                     <div className="footer-col-three">
-                        <HashRouter>
-                            <div>
-                                <div className="footer-list">
-                                    <p className="footer-list-header">Site Map</p>
-                                    <nav className="footer-list-item">
-                                        <Link to="/">Home</Link>
-                                    </nav>
-                                    <nav className="footer-list-item">
-                                        <Link to="/acts">Acts</Link>
-                                    </nav>
-                                    <nav className="footer-list-item">
-                                        <Link to="/about">About</Link>
-                                    </nav>
-                                </div>
+                        <div>
+                            <div className="footer-list">
+                                <p className="footer-list-header">Site Map</p>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/")}>Home</a>
+                                </nav>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/acts")}>Acts</a>
+                                </nav>
+                                <nav className="footer-list-item">
+                                    <a onClick={() => history.push("/about")}>About</a>
+                                </nav>
                             </div>
-                        </HashRouter>
+                        </div>
                     </div>
                 </div>
             </div>

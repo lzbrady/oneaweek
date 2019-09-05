@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import {Route, HashRouter, Redirect} from "react-router-dom";
+import {Router, Route, Redirect} from "react-router-dom";
 import {auth} from "./server/fire";
+import history from './history';
 
 import "./App.css";
 
@@ -16,9 +17,10 @@ import SharePage from "./Share/SharePage";
 import About from "./About/About";
 import Admin from "./Admin/Admin";
 import SignIn from "./Admin/SignIn";
-import AdminClasses from "./Admin/AdminClasses/AdminClasses";
-import AdminBlogs from "./Admin/AdminBlogs/AdminBlogs";
+import AdminActCount from "./Admin/AdminClasses/AdminActCount";
 import AdminAddBlog from "./Admin/AdminBlogs/AdminAddBlog";
+import AdminBlogs from "./Admin/AdminBlogs/AdminBlogs";
+import AdminClasses from "./Admin/AdminClasses/AdminClasses";
 import AdminMenu from "./Admin/AdminMenu";
 
 class App extends Component {
@@ -54,7 +56,7 @@ class App extends Component {
         return (
             <div>
                 <Menu/> {this.state.authUser && <AdminMenu authUser={this.state.authUser}/>}
-                <HashRouter>
+                <Router history={history}>
                     <div className="App pad-bottom">
                         <div className="content">
                             <Route exact path="/" component={HomePage}/>
@@ -91,9 +93,14 @@ class App extends Component {
                                 exact
                                 path="/admin/classes"
                                 component={AdminClasses}/>
+                            <PrivateRoute
+                                authUser={this.state.authUser}
+                                exact
+                                path="/admin/count"
+                                component={AdminActCount}/>
                         </div>
                     </div>
-                </HashRouter>
+                </Router>
                 <Footer/>
             </div>
         )

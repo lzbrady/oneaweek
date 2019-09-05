@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {HashRouter, Link} from "react-router-dom";
 import axios from 'axios';
+import history from "../history";
 
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -174,7 +174,7 @@ class SharePage extends Component {
                     this.setState({step: 5, loading: false});
                 }
             } else {
-                const _url = "142.93.176.115";
+                const _url = "https://api.1aweekchallenge.com:4200/api/";
 
                 const formdata = new FormData();
                 formdata.append('file', fileSrc);
@@ -183,7 +183,7 @@ class SharePage extends Component {
                 if (fileSrc.type.includes("png") || fileSrc.type.includes("PNG") || fileSrc.type.includes("JPEG") || fileSrc.type.includes("jpeg") || fileSrc.type.includes("JPG") || fileSrc.type.includes("jpg")) {
                     // There is an image attached, send to the CLOUD
                     axios
-                        .post(`${_url}image`, formdata, {
+                        .post(`${_url}act/image`, formdata, {
                         headers: {
                             'accept': 'application/json',
                             'Accept-Language': 'en-US,en;q=0.8',
@@ -277,23 +277,21 @@ class SharePage extends Component {
                     onClick={() => this.setState({
                     class: {
                         id : "guestClass",
-                        teacher : "No School Affiliation"
+                        teacher : "Shared As Guest"
                     },
                     state: "guestState",
                     school: {
                         id: "guestSchool",
-                        name: "No School Affiliation"
+                        name: "Shared As Guest"
                     },
                     step: 4
                 })}>
                     Share as Guest
                 </button>}
 
-                <HashRouter>
-                    <nav>
-                        <Link to="/contact" id="request-btn">Don't See Class/School?</Link>
-                    </nav>
-                </HashRouter>
+                <nav>
+                    <a onClick={() => history.push("/contact")} id="request-btn">Don't See Class/School?</a>
+                </nav>
 
                 {(this.state.step === 5 && !this.state.loading) && <div>
                     <h2>Act shared!</h2>
