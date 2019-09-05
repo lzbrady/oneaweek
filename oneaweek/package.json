@@ -21,6 +21,7 @@
     "nodemon": "^1.18.4",
     "react": "^16.4.2",
     "react-confirm-alert": "^2.0.5",
+    "react-countup": "^4.2.2",
     "react-dom": "^16.4.2",
     "react-facebook": "^5.0.3",
     "react-redux": "^5.1.0",

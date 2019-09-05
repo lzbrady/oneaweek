@@ -27,7 +27,8 @@
   border: 2px solid #0a246e;
   min-width: 300px;
   border-radius: 4px;
-  background-color: rgba(250, 255, 84, 0.5);
+  background-color: #0a246e;
+  color: white;
   margin-bottom: 32px;
 }
 
@@ -107,7 +108,8 @@
   left: 0px;
 }
 
-.home-page-facebook:hover, .home-page-instagram:hover {
+.home-page-facebook:hover,
+.home-page-instagram:hover {
   cursor: pointer;
   width: 90%;
   z-index: 20;

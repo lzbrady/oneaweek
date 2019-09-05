@@ -8,6 +8,14 @@
   position: relative;
 }
 
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: min-content;
+  width: 75%;
+  min-width: 300px;
+  margin: 20px auto;
+}
+
 .act-item:nth-child(even),
 .list-item:nth-child(even),
 .list-object:nth-child(even) .list-item {
@@ -72,11 +80,25 @@
 
 .act-name {
   margin: 0px;
-  display: inline-block;
+  grid-column-start: 1;
+  text-align: start;
+  margin-bottom: 20px;
+  background-color: #0a246e;
+  color: white;
+  padding: 0px 5px;
+  font-weight: normal;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .act-act {
   margin: 0px;
+  grid-column-start: 2;
+  text-align: start;
+  border-bottom: 1px solid #0a246e;
+  margin-bottom: 20px;
+  vertical-align: middle;
+  padding: 0px 10px;
 }
 
 .back-btn {

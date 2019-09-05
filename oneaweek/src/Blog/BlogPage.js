@@ -40,7 +40,7 @@ class BlogPage extends Component {
   render() {
     return (
         <div className="pad-bottom">
-          <h1 className="headline">1 a week stories</h1>
+          <h1 className="headline">1 a Week stories</h1>
           {this.state.blogPosts.map(blog => {
             return (
               <nav className="blog-post-preview-wrapper" key={blog.title}>
