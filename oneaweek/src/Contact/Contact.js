@@ -26,45 +26,6 @@ class Contact extends Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    if (!this.state.success) {
-      if (this.state.name === "") {
-        this.setState({ error: "Name required" });
-      } else if (this.state.message === "") {
-        this.setState({ error: "Message required" });
-      } else if (
-        this.state.email !== "" &&
-        !(this.state.email.includes("@") && this.state.email.includes("."))
-      ) {
-        this.setState({ error: "Invalid email address" });
-      } else {
-        this.setState({ error: "" });
-
-        const _url = "https://api.1aweekchallenge.com:4200/api/";
-
-        var name = this.state.name;
-        var email = this.state.email;
-        var school = this.state.school;
-        var message = this.state.message;
-
-        axios
-          .post(`${_url}contact`, { name, email, school, message })
-          .then(res => {
-            this.setState({ success: true });
-          })
-          .catch(err => {
-            this.setState({
-              error: "Sorry! Something went wrong. Please try again later.",
-              step: 4,
-              loading: false
-            });
-          });
-      }
-    }
-  }
-
   render() {
     return (
       <div>
@@ -75,6 +36,7 @@ class Contact extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           className="contact-form"
+          netlify
         >
           <input type="hidden" name="form-name" value="contact-form" />
           <input
