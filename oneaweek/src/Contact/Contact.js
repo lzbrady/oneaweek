@@ -15,7 +15,6 @@ class Contact extends Component {
     };
 
     this.setFormValue = this.setFormValue.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   setFormValue(event) {
