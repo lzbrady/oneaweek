@@ -12,8 +12,6 @@ class Contact extends Component {
       name: "",
       school: "",
       message: "",
-      error: "",
-      success: false
     };
 
     this.setFormValue = this.setFormValue.bind(this);
@@ -44,7 +42,6 @@ class Contact extends Component {
             type="text"
             name="name"
             placeholder="Name"
-            readOnly={this.state.success}
             value={this.state.name}
             onChange={this.setFormValue}
           />
@@ -52,7 +49,6 @@ class Contact extends Component {
           <input
             className="contact-input"
             type="text"
-            readOnly={this.state.success}
             name="email"
             placeholder="Email (optional)"
             value={this.state.email}
@@ -62,7 +58,6 @@ class Contact extends Component {
           <input
             className="contact-input"
             type="text"
-            readOnly={this.state.success}
             name="school"
             placeholder="School (optional)"
             value={this.state.school}
@@ -72,24 +67,13 @@ class Contact extends Component {
           <textarea
             className="contact-textarea"
             type="text"
-            readOnly={this.state.success}
             name="message"
             placeholder="Message"
             value={this.state.message}
             onChange={this.setFormValue}
           />{" "}
-          {this.state.error !== "" && (
-            <p className="error">{this.state.error}</p>
-          )}
-          <button
-            type="submit"
-            className={
-              this.state.success
-                ? "contact-submit-btn-success"
-                : "contact-submit-btn"
-            }
-          >
-            {this.state.success ? "Message Sent!" : "SEND MESSAGE"}
+          <button type="submit" className="contact-submit-btn">
+            SEND MESSAGE
           </button>
         </form>
       </div>
