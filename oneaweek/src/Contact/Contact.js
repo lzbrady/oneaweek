@@ -19,7 +19,7 @@ class Contact extends Component {
 
   setFormValue(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -31,6 +31,7 @@ class Contact extends Component {
           name="contact-form"
           method="post"
           className="contact-form"
+          data-netlify="true"
         >
           <input type="hidden" name="form-name" value="contact-form" />
           <input
